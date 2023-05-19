@@ -1,13 +1,62 @@
 from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from rest_framework.views import APIView
+from .models import * 
+from .api.serializers import *
+from django.http import Http404
+from rest_framework import status
 
-#from rest_framework import api_view
+#recherche par thèmes:
+@api_view(['POST'])
+def Recherche_theme(Request):
+    context= Request.data
+    theme=context.get('theme')
+    print(theme)
+    lieux=Lieu.objects.filter(theme=theme)
+    serializer=LieuSerializer(lieux,many=True)
+    return Response(serializer.data)
 
-# Create your views here.
+
+#recherche par catégorie 
+@api_view(['POST'])
+def Recherche_categorie(Request):
+    context= Request.data
+    categorie=context.get('categorie')
+    lieux=Lieu.objects.filter(categorie=categorie)
+    serializer=LieuSerializer(lieux,many=True)
+    return Response(serializer.data)
+
+class LieuxView(APIView):
+#récupérer tous les lieux
+   def get(self,request):
+       lieux=Lieu.objects.all()
+       serializer=LieuSerializer(lieux,many=True)
+       return Response(serializer.data)
+
+#ajouter lieu 
+   def post(self, request):
+        serializer = LieuSerializer(data=request.data)
+        if serializer.is_valid():
+            lieu, created = Lieu.objects.get_or_create(
+                Nom=serializer.validated_data['Nom'],
+                defaults=serializer.validated_data
+            )
+            if created:
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+            else:
+                return Response(
+                    {"message": "Lieu already exists."},
+                    status=status.HTTP_200_OK
+                )
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+#Supprimer lieu
  
-#functions for the normal non authentified user
-@api_view(['GET'])
-def Recherche_theme(request):
-    context
 
+
+#filtrage par nom
+
+
+
+#récupérer details lieu

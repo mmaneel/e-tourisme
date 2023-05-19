@@ -15,8 +15,16 @@ class Lieu(models.Model):
      latitude = models.FloatField()
      image= models.ImageField(upload_to='media')
      horaire_ouv=models.CharField(max_length=30)
-     type = models.CharField(max_length=30)
+     categorie = models.CharField(max_length=30)
+     
+class Transport(models.Model):
+     Nom = models.CharField(max_length=30)
 
+     
+class Transportlieu(models.Model):
+     lieuid = models.ForeignKey(Lieu,null=True,on_delete=models.SET_NULL)
+     transportid=models.ForeignKey(Transport,null=True,on_delete=models.SET_NULL)
+     
 class User(models.Model):
       email=models.EmailField()
       password=models.CharField(max_length=40)

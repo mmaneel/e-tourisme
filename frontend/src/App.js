@@ -1,11 +1,24 @@
 import logo from './logo.svg';
+import React,{useState} from 'react'
 import './App.css';
-import Auth from './Components/AUth/Auth';
+import Login from './Components/AUth/Login';
+import Register from './Components/AUth/Register';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import EditPasswd from './Components/EditPasswd/EditPasswd';
 
 function App() {
+  const[currentForm,setCurrentForm]= useState('Login')
+  const toggleform=(formName)=>{
+    setCurrentForm(formName)
+
+  }
   return (
     <div className="App">
-      <Auth/>
+       
+      {currentForm === "Login" ?<Login onFormSwitch={toggleform}/>:<Register onFormSwitch={toggleform}/>}
+      {/*<EditPasswd/>*/}
+
+      
     </div>
   );
 }

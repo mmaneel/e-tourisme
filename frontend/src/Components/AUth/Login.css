@@ -1,0 +1,89 @@
+.container-log {
+    display: flex ;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
+  }
+  .container-log > form {
+    display: flex ;
+    flex-direction: column;
+
+    align-items: center;
+    width: 70%;
+    
+    border: 1px solid #dfdfdf;
+    padding: 20px;
+    border-radius: 20px;
+    background: #FEFDF7;
+    
+  }
+  .container-log img{
+    width: 70px;
+    height: 70px;
+    padding: 5% 40% 0% 40%;
+    
+  }
+  .container-log h2{
+    font-size: 25px;
+    color: #162641;
+    
+  }
+  .container-log span{
+    font-size: 11px;
+    color: #162641;
+    margin-top: -20px;
+    margin-bottom: 35px;
+  }
+  .container-log .input-info{
+    display: flex ;
+    flex-direction: column;
+    text-align: left;
+    width: 90%;
+    position: relative;
+   
+    
+  }
+  .container-log .input-info label{
+    margin-left: 8px;
+    color: #50504F;
+  }
+  
+  .container-log .input-info input{
+    margin-top: 4px;
+  height: 20px;
+    border: 1px solid #dfdfdf;
+    border-radius: 12px;
+    padding: 10px;
+    background-color: #F6F2E6;
+    color: #635D5D;
+    
+  }
+  .container-log .btn-inscrire{
+    background-color: #C1DCAB;
+    border: none;
+    width: 45%;
+    height: 35px;
+    font-size: 16px;
+    border-radius: 12px;
+    font-weight:500;
+    margin-top: 18PX;
+  }
+  .container-log .btn-link{
+    border: none;
+    background-color:transparent;
+
+    padding-top: 30px;
+    font-size: 10px;
+
+  }
+.container-log .btn-visibility{
+ position: absolute;
+  background-color: transparent;
+  left: 90%;
+  top: 30%;
+  border: none;
+}

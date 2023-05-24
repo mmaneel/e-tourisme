@@ -5,3 +5,8 @@ class LieuSerializer(serializers.ModelSerializer):
     class Meta:
         model=Lieu
         fields= '__all__'
+
+class EventSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Evenement
+        fields= '__all__'

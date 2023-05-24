@@ -14,38 +14,43 @@ class Lieu(models.Model):
      longitude = models.FloatField()
      latitude = models.FloatField()
      image= models.ImageField(upload_to='media')
-     horaire_ouv=models.CharField(max_length=30)
      categorie = models.CharField(max_length=30)
-     
-class Transport(models.Model):
-     Nom = models.CharField(max_length=30)
 
-     
-class Transportlieu(models.Model):
-     lieuid = models.ForeignKey(Lieu,null=True,on_delete=models.SET_NULL)
-     transportid=models.ForeignKey(Transport,null=True,on_delete=models.SET_NULL)
-     
+class HoraireOuv(models.Model):
+    id = models.AutoField(primary_key=True)
+    lieu = models.ForeignKey(Lieu, on_delete=models.CASCADE)
+    jour = models.CharField(max_length=255)
+    heure_ouverture = models.CharField(max_length=8)  # Format: HH:MM:SS
+    heure_fermeture = models.CharField(max_length=8)  # Format: HH:MM:SS
+
+   
+class Transport(models.Model):
+    moyen = models.CharField(max_length=45)
+    lieu = models.ForeignKey(Lieu, on_delete=models.CASCADE)
+    temps = models.CharField(max_length=8)
+
 class User(models.Model):
       email=models.EmailField()
       password=models.CharField(max_length=40)
 
 class Commentaire(models.Model):
      body=models.TextField()
-     lieuid=models.ForeignKey(Lieu,null=True,on_delete=models.SET_NULL)
-     userid=models.ForeignKey(User,null=True,on_delete=models.SET_NULL)
-     created_at=models.DateTimeField()
+     lieuid=models.ForeignKey(Lieu,on_delete=models.CASCADE)
+     userid=models.ForeignKey(User,on_delete=models.CASCADE)
+     created_at=models.DateTimeField(auto_now_add=True)
 
 class Appreciation(models.Model):
      stars=models.IntegerField()
-     lieuid=models.ForeignKey(Lieu,null=True,on_delete=models.SET_NULL)
-     userid=models.ForeignKey(User,null=True,on_delete=models.SET_NULL)
-     created_at=models.DateTimeField()
+     lieuid=models.ForeignKey(Lieu,on_delete=models.CASCADE)
+     userid=models.ForeignKey(User,on_delete=models.CASCADE)
+     created_at=models.DateTimeField(auto_now_add=True)
 
 class Favoris(models.Model):
-     wilayaid=models.ForeignKey(Wilaya,null=True,on_delete=models.SET_NULL)
-     userid=models.ForeignKey(User,null=True,on_delete=models.SET_NULL)
+     wilayaid=models.ForeignKey(Wilaya,on_delete=models.CASCADE)
+     userid=models.ForeignKey(User,on_delete=models.CASCADE)
 
-class evenement(models.Model):
+class Evenement(models.Model):
      titre= models.CharField(max_length=30)
-     lieuid=models.ForeignKey(Lieu,null=True,on_delete=models.SET_NULL)
+     description= models.TextField()
+     lieuid=models.ForeignKey(Lieu,on_delete=models.CASCADE)
      date=models.DateField()

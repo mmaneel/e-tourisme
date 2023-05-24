@@ -1,10 +1,10 @@
 import logo from './logo.svg';
 import React,{useState} from 'react'
 import './App.css';
-import Login from './Components/AUth/Login';
-import Register from './Components/AUth/Register';
+import Login from './containers/AUth/Login';
+import Register from './containers/AUth/Register';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import EditPasswd from './Components/EditPasswd/EditPasswd';
+import EditPasswd from './containers/EditPasswd/EditPasswd';
 
 function App() {
   const[currentForm,setCurrentForm]= useState('Login')

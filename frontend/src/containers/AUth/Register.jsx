@@ -4,9 +4,9 @@ import { useNavigate, NavLink } from "react-router-dom";
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import ClearIcon from '@mui/icons-material/Clear';
-import LOGO from "../../Assests/LOGO.png"
 
-function Login(props) {
+
+function Register(props) {
   const initialeValues={email:"",password:""};
   const[formValues,setFormValues]=useState(initialeValues);
   const[formErrors,setFormErrors]=useState({});
@@ -45,7 +45,7 @@ function Login(props) {
     const regex=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
 
     if(!values.email){
-      errors.email="L'e-mail est requis !"
+      errors.email="Email is required!"
     }else if (!regex.test(values.email)){
       errors.email="This is not a valid email format"
     }
@@ -77,9 +77,9 @@ function Login(props) {
     
     <form onSubmit={handleSubmit}>
     <ClearIcon   sx={{ fontSize: "20px", marginLeft: "90%",marginTop: "2%"}}/>
-    <img src={LOGO} alt="logo" />
-    <h2 >Bienvenue  à  ZDestination </h2>
-    <span>Créez un compte, une experience exptionnelle vous attend ! </span>
+    <img src='/LOGO.png' alt="logo" />
+    <h2 >Bienvenue  de nouveau </h2>
+    <span>Faites entrer votre information pour commencer ! </span>
       <div className='input-info'>
       <label >Email</label>
     <input 
@@ -92,12 +92,12 @@ function Login(props) {
       </div>
       
 <div className='input-info'>
-<label >Mot de passe</label>
+<label >Password</label>
     <input 
      name ="password"
     value={formValues.password} 
     type={passwordType} 
-    placeholder='************'
+    placeholder='******'
     onChange={handlechange}/>
     <a className='btn-visibility' onClick={togglePassword}>
     {passwordType === "password" ? (
@@ -109,12 +109,13 @@ function Login(props) {
       />
     )}
       </a>
+      <a style={{ color: '#484646' , fontSize:'8px',textAlign:'right',paddingRight:'10px'}}>Mot de pass oublié</a>
     <p style={{ color: 'red' , fontSize:'12px'}}>{formErrors.password}</p>
     
 </div>
     
-    <button className='btn-inscrire' type='submit'>S'inscrire</button>
-    <button className='btn-link' onClick={()=>props.onFormSwitch('Register')}>Vous avez déja un compte ? Se connecter</button>
+    <button className='btn-inscrire' type='submit'>Connecter</button>
+    <button className='btn-link' onClick={()=>props.onFormSwitch('Login')}>Vous n' avez pas un compte ? S'inscrire</button>
   </form>
   
   </div>
@@ -122,4 +123,4 @@ function Login(props) {
   )
 }
 
-export default Login
+export default Register

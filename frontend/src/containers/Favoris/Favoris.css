@@ -1,0 +1,67 @@
+
+.container-fav{
+    background-color: #FEFDF7;
+    height: 100%;
+}
+.container-fav .ligne-pic{
+    position:relative;
+    width: 200px;
+    height: 200px;
+    top: 170px;
+}
+.container-fav .ligne-pic1{
+    position:relative;
+    width: 200px;
+    height: 200px;
+    bottom: 100px;
+}
+.container-fav .ligne-pic2{
+    position:relative;
+    width: 180px;
+    height: 190px;
+    bottom: 90px;
+    left: 830px;
+}
+.container-fav .lieu-form-fav{
+    display: flex;
+    flex-direction: row;
+    width: 990px;
+    height:150px;  
+    margin: auto;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+      
+}
+.container-fav .lieu-form-fav img{
+    width: 25% ;  
+}
+.container-fav .lieu-form-R-fav{
+    padding: 25px 35px 0px 15px;
+}
+.container-fav .lieu-name-fav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: start;  
+}
+.container-fav .lieu-name-fav h3{ 
+    margin: 0px;
+    font-weight: 600;
+    color: #162641;
+}
+.container-fav .region-name {
+    font-size: 17px;
+    color: #C1DCAB; 
+    padding-top: 5px;
+}
+.container-fav .icon-star{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 4px;   
+}
+.lieu-form-R-fav p{
+    color:#162641;
+}

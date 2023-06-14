@@ -10,6 +10,7 @@ import Register from './containers/AUth/Register';
 import Login from './containers/AUth/Login';
 import Forgetpasswd from './containers/Passwd/Forgetpasswd';
 import RecVisiteur from './containers/Recommended-Visiteur/RecVisiteur';
+import Favoris from './containers/Favoris/Favoris';
 const router = createBrowserRouter([
   {
   path:"/",
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
 { 
   path:"/Forgetpasswd",
    element:<Forgetpasswd/>
+},
+{ 
+  path:"/Favoris",
+   element:<Favoris/>
 }
 ]);
 

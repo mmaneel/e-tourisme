@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import './Login.css'
-import { useNavigate, NavLink } from "react-router-dom";
+import { useNavigate, NavLink, Link } from "react-router-dom";
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import ClearIcon from '@mui/icons-material/Clear';
@@ -109,13 +109,13 @@ function Register(props) {
       />
     )}
       </a>
-      <a style={{ color: '#484646' , fontSize:'8px',textAlign:'right',paddingRight:'10px'}}>Mot de pass oublié</a>
+      <a style={{fontSize:'8px',textAlign:'right',paddingRight:'10px'}}><Link style={{ color: '#484646' }}  to ="/Forgetpasswd">Mot de pass oublié</Link></a>
     <p style={{ color: 'red' , fontSize:'12px'}}>{formErrors.password}</p>
     
 </div>
     
-    <button className='btn-inscrire' type='submit'>Connecter</button>
-    <button className='btn-link' onClick={()=>props.onFormSwitch('Login')}>Vous n' avez pas un compte ? S'inscrire</button>
+    <button className='btn-inscrire' type='submit'><Link className='link-style' to ="/LieuDV ">Connecter</Link></button>
+    <button className='btn-link'><Link  className='link-style style1' to ="/Login">Vous n' avez pas un compte ? S'inscrire</Link></button>
   </form>
   
   </div>

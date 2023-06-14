@@ -61,3 +61,50 @@
     left: 25%;
   }
   
+  
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .container-Editpasswd > form {
+    width: 80%;
+    padding: 0px 0px 20px 24px;
+  }
+
+  .container-Editpasswd h3 {
+    font-size: 18px;
+  }
+
+  .container-Editpasswd .input-info input {
+    height: 18px;
+    padding: 8px;
+  }
+
+  .container-Editpasswd .btn-confirm {
+    width: 50%;
+    height: 30px;
+    font-size: 14px;
+    left: 20%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container-Editpasswd > form {
+    width: 90%;
+    padding: 0px 0px 15px 20px;
+  }
+
+  .container-Editpasswd h3 {
+    font-size: 16px;
+  }
+
+  .container-Editpasswd .input-info input {
+    height: 16px;
+    padding: 6px;
+  }
+
+  .container-Editpasswd .btn-confirm {
+    width: 55%;
+    height: 25px;
+    font-size: 12px;
+    left: 15%;
+  }
+}

@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from 'react'
 import './Login.css'
-import { useNavigate, NavLink } from "react-router-dom";
+import { useNavigate, NavLink, Link } from "react-router-dom";
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import ClearIcon from '@mui/icons-material/Clear';
@@ -113,8 +113,8 @@ function Login(props) {
     
 </div>
     
-    <button className='btn-inscrire' type='submit'>S'inscrire</button>
-    <button className='btn-link' onClick={()=>props.onFormSwitch('Register')}>Vous avez déja un compte ? Se connecter</button>
+    <button className='btn-inscrire' type='submit'><Link className='link-style' to ="/LieuDV ">S'inscrire</Link></button>
+    <button className='btn-link' ><Link className='link-style' to ="/Register">Vous avez déja un compte ? Se connecter</Link></button>
   </form>
   
   </div>

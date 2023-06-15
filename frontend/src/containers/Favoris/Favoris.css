@@ -25,18 +25,7 @@ font-family: 'Urbanist', sans-serif;
     bottom: 90px;
     left: 830px;
 }
-.container-fav .lieu-form-fav{
-    display: flex;
-    flex-direction: row;
-    width: 990px;
-    height:150px;  
-    margin: auto;
-    margin-bottom: 50px;
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: white;
-      
-}
+
 .container-fav .lieu-form-fav img{
     width: 25% ;  
 }
@@ -63,8 +52,47 @@ font-family: 'Urbanist', sans-serif;
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-top: 4px;   
+    padding-top: 4px; 
+    justify-content: space-evenly;  
 }
-.lieu-form-R-fav p{
+.container-fav .icon-star img {
+    color: #162641;
+    width: 20px;
+    height: 20px; 
+    padding-left: 5px;  
+}
+.container-fav .lieu-form-R-fav p{
     color:#162641;
+    margin-top: 5px;
+}
+.container-fav .hide-detl{
+    height: 80px;
+    overflow: hidden;
+   
+}
+
+.container-fav .btn-show-detl{
+    position: relative;
+    top: -17px;
+    left: 85%;
+    border: none;
+    background-color: transparent;
+    color: #c3c3c3;
+
+}
+.container-fav .lieu-form-fav{
+    display: flex;
+    flex-direction: row;
+    width: 890px;
+    height:180px;  
+    margin: auto;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow:rgba(0, 0, 0, 0.1) 8px 1px 8px;
+    
+    
+    
+      
 }

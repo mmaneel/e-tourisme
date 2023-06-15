@@ -80,6 +80,15 @@ function Register(props) {
     <img src='/LOGO.png' alt="logo" />
     <h2 >Bienvenue  de nouveau </h2>
     <span>Faites entrer votre information pour commencer ! </span>
+    <div className='input-info'>
+      <label >Name</label>
+    <input 
+       name="email"
+       value={formValues.Loginemail}
+       type="text"
+       placeholder='name'
+       onChange={handlechange}/>
+      </div>
       <div className='input-info'>
       <label >Email</label>
     <input 

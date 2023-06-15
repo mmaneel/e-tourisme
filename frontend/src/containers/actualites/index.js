@@ -38,10 +38,10 @@ const Actualites = () => {
 			<div className='absolute top-0 left-0'>
             	<img src='/ligne.png' ></img>
             </div>
-			<div className='absolute bottom-10 left-0'>
+			<div className='absolute bottom-52 left-0'>
             	<img src='/ligne1.png' ></img>
             </div>
-			<div className='absolute bottom-14 right-0'>
+			<div className='absolute bottom-56 right-0'>
             	<img src='/ligne2.png' ></img>
             </div>
             <div className='w-full h-72 -mb-24 flex flex-col ' style={myStyle}>
@@ -106,6 +106,18 @@ const Actualites = () => {
 								)}
 							</SwiperSlide>
                             <SwiperSlide key={4}>
+								{({ isActive }) => (
+									<SpeakersCard active={isActive} name='df' image='/logo192.png' description="sfsdf"/>
+								)}
+							</SwiperSlide>
+							
+                            <SwiperSlide key={5}>
+								{({ isActive }) => (
+									<SpeakersCard active={isActive} name='df' image='/logo192.png' description="sfsdf"/>
+								)}
+							</SwiperSlide>
+							
+                            <SwiperSlide key={6}>
 								{({ isActive }) => (
 									<SpeakersCard active={isActive} name='df' image='/logo192.png' description="sfsdf"/>
 								)}
@@ -208,7 +220,35 @@ const Actualites = () => {
 					</button>
 				</div>
 			</div>
-            <div className='w-full h-72 -mt-40' style={myStyle2}></div>
+            <div className='w-full h-96 -mt-28 items-end flex flex-row px-28 justify-between' style={myStyle2}>
+				<div className='flex flex-col mb-14 gap-2'>
+                  <p className='text-xl font-medium'>Présenté par : </p>
+				  <img src='/ministereIcon.svg' height='85px'></img>
+				</div>
+				<div className='flex flex-col mb-14 gap-3'>
+				     <p className='text-xl font-medium'>Réalisé par : </p>
+                     <div className='flex flex-row gap-3'>
+                          <div className='flex flex-row items-center'>
+							<img src='/ArtsyLogo.svg' height='85px'></img>
+						  </div>
+						  <div className='border-l-2'></div>
+						  <div className='flex flex-col items-start justify-between'>
+							 <div className='flex flex-row justify-between gap-2'>
+								<img src='/phoneIcon.svg'></img>
+								<p>07-82-53-23-27</p>
+							 </div>
+							 <div className='flex flex-row justify-between gap-2'>
+								<img src='/mailIcon.svg'></img>
+								<p>www.artsytech.com</p>
+							 </div>
+							 <div className='flex flex-row justify-between gap-2'>
+							    <img src='websiteIcon.svg'></img>
+								<p>Info@artsytech.com</p>
+							 </div>
+						  </div>
+					 </div>
+				</div>
+			</div>
         </div>
 	);
 };

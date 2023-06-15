@@ -42,7 +42,7 @@ const Mapi = () => {
                   <div className='absolute top-4 right-0'>
                     <img src='/plane1.png' width='170px'></img>
                   </div>
-                  <div className='text-2xl text-center font-semibold mb-10'>Utilisez la map pour rechercher, repérer les endroits de séjour désirés.  </div>
+                  <div className='text-2xl text-center font-semibold mb-10'>Utilisez la map pour découvrir, rechercher et repérer les endroits de séjour désirés.  </div>
                   <div className='px-4 py-2 bg-orange-400 rounded-xl text-xl text-center font-medium'>Explorez la map</div>
                 </div>
    </div>

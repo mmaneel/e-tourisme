@@ -4,10 +4,11 @@ import { useNavigate, NavLink, Link } from "react-router-dom";
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import ClearIcon from '@mui/icons-material/Clear';
+import axios from 'axios';
 
 
 function Login(props) {
-  const initialeValues={email:"",password:""};
+  const initialeValues={name:"",email:"",password:""};
   const[formValues,setFormValues]=useState(initialeValues);
   const[formErrors,setFormErrors]=useState({});
   const[isSubmit,setIsSubmit]=useState(false);
@@ -26,19 +27,23 @@ function Login(props) {
     e.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmit(true)
-  }
-  useEffect(()=>{
-    console.log(formErrors)
+  
     if(Object.keys(formErrors).length===0 && isSubmit){
       console.log(formValues);
-     /* axios.post("", formValues).then((res) => {
-        alert(res.data.message);
-        setUserState(res.data.formValues);
-        navigate("/", { replace: true });
-      });*/
+     axios.post('http://localhost:8000/users/api/register/', formValues)
+     .then((response) => {
+      // Gérer la réponse du serveur après la connexion réussie
+      console.log(response.data);
+        //alert(res.data.message);
+        //setUserState(res.data.formValues);
+        //navigate("/", { replace: true });
+      })
+      .catch((error) => {
+        // Gérer les erreurs lors de l'inscription
+        console.error(error);})
     }
     
-  },[formErrors]);
+  };
 
   const validate=(values)=>{
     const errors={}
@@ -80,6 +85,15 @@ function Login(props) {
     <img src='/LOGO.png' alt="logo" />
     <h2 >Bienvenue  à  ZDestination </h2>
     <span>Créez un compte, une experience exptionnelle vous attend ! </span>
+    <div className='input-info'>
+      <label >Name</label>
+    <input 
+       name="name"
+       value={formValues.name}
+       type="text"
+       placeholder='name'
+       onChange={handlechange}/>
+      </div>
       <div className='input-info'>
       <label >Email</label>
     <input 
@@ -113,7 +127,7 @@ function Login(props) {
     
 </div>
     
-    <button className='btn-inscrire' type='submit'><Link className='link-style' to ="/LieuDV ">S'inscrire</Link></button>
+    <button className='btn-inscrire' type='submit'>S'inscrire</button>
     <button className='btn-link' ><Link className='link-style' to ="/Register">Vous avez déja un compte ? Se connecter</Link></button>
   </form>
   

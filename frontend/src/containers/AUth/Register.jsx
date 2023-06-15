@@ -4,6 +4,7 @@ import { useNavigate, NavLink, Link } from "react-router-dom";
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import ClearIcon from '@mui/icons-material/Clear';
+import axios from 'axios';
 
 
 function Register(props) {
@@ -26,19 +27,21 @@ function Register(props) {
     e.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmit(true)
-  }
-  useEffect(()=>{
-    console.log(formErrors)
+ 
     if(Object.keys(formErrors).length===0 && isSubmit){
       console.log(formValues);
-     /* axios.post("", formValues).then((res) => {
-        alert(res.data.message);
-        setUserState(res.data.formValues);
-        navigate("/", { replace: true });
-      });*/
+      axios.post('http://localhost:8000/users/api/register/', formValues)
+      .then((res) => {
+        alert("Registration successful!");
+        // Optionally, perform any additional actions after successful registration
+      })
+      .catch((error) => {
+        console.error("Registration error:", error);
+        // Optionally, handle the registration error
+      });
     }
     
-  },[formErrors]);
+  };
 
   const validate=(values)=>{
     const errors={}
@@ -80,15 +83,7 @@ function Register(props) {
     <img src='/LOGO.png' alt="logo" />
     <h2 >Bienvenue  de nouveau </h2>
     <span>Faites entrer votre information pour commencer ! </span>
-    <div className='input-info'>
-      <label >Name</label>
-    <input 
-       name="email"
-       value={formValues.Loginemail}
-       type="text"
-       placeholder='name'
-       onChange={handlechange}/>
-      </div>
+    
       <div className='input-info'>
       <label >Email</label>
     <input 

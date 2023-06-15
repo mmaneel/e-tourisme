@@ -1,21 +1,23 @@
 .container-lieuDV{
     display: grid;
-    grid-template-columns: repeat(4,auto);
+    grid-template-columns: repeat(4,300px);
     background-color: #FEFDF7;
     padding-top: 70px;
+    justify-content: center;
    
 }
 
 .container-lieuDV .lieu-form{
   width: 10%;
-    min-width: 200px;
-    height: 250px;
+    min-width: 240px;
+    height: 300px;
     margin: auto;
     margin-bottom: 50px;
     position: relative;
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow:rgba(0, 0, 0, 0.1) 0px -1px 9px 3px;
     overflow: hidden;   
+    background-color: white;
     
 }
 .container-lieuDV .lieu-form-active{

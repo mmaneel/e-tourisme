@@ -2,14 +2,16 @@
     padding: 15px;
     text-align: center;
     width: 50%;
-    background: white;
+    background: #f7f4ec;
     cursor: pointer;
     box-sizing: content-box;
     position: relative;
     outline: none;
-    border-top-left-radius:25px ;
-    border-top-right-radius:25px ;
-    height: 30px;
+    border-top-left-radius:45px ;
+    border-top-right-radius:45px ;
+    height: 50px;
+    font-size: 20px;
+    color: #635D5D;
   
   }
   
@@ -17,7 +19,10 @@
   .rec-list .active-tabs  {
     background: #FEFDF7;
     border-bottom: 1px solid transparent;
-    box-shadow:rgba(0, 0, 0, 0.1) -2px -8px 8px
+    box-shadow:rgba(0, 0, 0, 0.1) -2px -8px 8px;
+    font-weight:900;
+    color: #162641;
+    
   }
   
   .rec-list.active-tabs::before {
@@ -29,6 +34,7 @@
     transform: translateX(-50%);
     width: calc(100% + 2px);
     height: 5px;
+    
   
   }
   .rec-list button {
@@ -39,8 +45,9 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: white;
+    background: #f7f4ec;
     align-items: center;
+    height: 50px;
   
   
   }

@@ -1,32 +1,27 @@
-import logo from './logo.svg';
-import React,{useState} from 'react'
-import './App.css';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, useNavigate, Link } from 'react-router-dom';
 import Login from './containers/AUth/Login';
 import Register from './containers/AUth/Register';
-import { BrowserRouter as Router, Route, Switch,Routes } from 'react-router-dom';
 import EditPasswd from './containers/Passwd/EditPasswd';
 import LieuDv from './containers/Recommended-Visiteur/LieuDv';
 import RecVisiteur from './containers/Recommended-Visiteur/RecVisiteur';
 import Forgetpasswd from './containers/Passwd/Forgetpasswd';
 
-
 function App() {
-  const[currentForm,setCurrentForm]= useState('Login')
-  const toggleform=(formName)=>{
-    setCurrentForm(formName)
+  
 
-  }
   return (
     <div className="App">
-     <Routes>
-        
-        <Route exact path="/" element={<Login/>}/>
-        
-     
-    </Routes>
-    
-      
-      
+      <Router>
+        <Routes>
+          <Route path="/" element={ <Login/> }/>
+          <Route path="/register" element={<Register />} />
+          <Route path="/lieuDv" element={<LieuDv />} />
+          <Route path="/recvisiteur" element={<RecVisiteur />} />
+          <Route path="/forgetpasswd" element={<Forgetpasswd />} />
+          {/* Add more routes for other components */}
+        </Routes>
+      </Router>
     </div>
   );
 }

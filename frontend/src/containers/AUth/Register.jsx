@@ -1,15 +1,19 @@
 import React,{useState,useEffect} from 'react'
 import './Login.css'
-import { useNavigate, NavLink, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import ClearIcon from '@mui/icons-material/Clear';
+import axios from 'axios';
+import API, { setAuthToken } from './API.jsx';
+import { Link } from 'react-router-dom';
 
 
 function Register(props) {
   const initialeValues={email:"",password:""};
   const[formValues,setFormValues]=useState(initialeValues);
   const[formErrors,setFormErrors]=useState({});
+  const[error,setError]=useState();
   const[isSubmit,setIsSubmit]=useState(false);
   const [passwordType, setPasswordType] = useState("password");
 
@@ -22,23 +26,35 @@ function Register(props) {
     setFormValues({ ...formValues,[name]:value});
     //console.log(formValues)
   }
+  const navigate = useNavigate();
   const handleSubmit=(e)=>{
     e.preventDefault();
     setFormErrors(validate(formValues));
     setIsSubmit(true)
-  }
-  useEffect(()=>{
-    console.log(formErrors)
+    
+ 
     if(Object.keys(formErrors).length===0 && isSubmit){
       console.log(formValues);
-     /* axios.post("", formValues).then((res) => {
-        alert(res.data.message);
-        setUserState(res.data.formValues);
-        navigate("/", { replace: true });
-      });*/
+      axios.post('http://localhost:8000/users/api/login/', formValues)
+      .then((res) => {
+        const token = res.data.access;
+        setAuthToken(token); 
+        localStorage.setItem('token',res.data.token)
+        navigate("/LieuDv")
+        
+       // alert("login successful!");
+      
+      })
+      .catch((error) => {
+        if (error.response && error.response.status === 401) {
+          setError('Invalid username or password.'); // Set the error message
+          alert("login error");
+        } else {
+          setError('An error occurred. Please try again later.');
+      }});
     }
     
-  },[formErrors]);
+  };
 
   const validate=(values)=>{
     const errors={}
@@ -69,17 +85,18 @@ function Register(props) {
   return (
     <>
     <div className='container-log'>
-    {Object.keys(formErrors).length===0 && isSubmit ?(
+    {/*Object.keys(formErrors).length===0 && isSubmit ?(
     <div>Signed in sucessfully</div>
     ):(
       null//<pre>{JSON.stringify(formValues,undefined,2)}</pre>
-    )}
+    )*/}
     
     <form onSubmit={handleSubmit}>
     <ClearIcon   sx={{ fontSize: "20px", marginLeft: "90%",marginTop: "2%"}}/>
     <img src='/LOGO.png' alt="logo" />
     <h2 >Bienvenue  de nouveau </h2>
     <span>Faites entrer votre information pour commencer ! </span>
+    
       <div className='input-info'>
       <label >Email</label>
     <input 
@@ -113,8 +130,9 @@ function Register(props) {
     <p style={{ color: 'red' , fontSize:'12px'}}>{formErrors.password}</p>
     
 </div>
-    
-    <button className='btn-inscrire' type='submit'><Link className='link-style' to ="/LieuDV ">Connecter</Link></button>
+{error && <p>{error}</p>} {/* Display the error message */}
+    <button className='btn-inscrire' type='submit'>Connecter
+    </button>
     <button className='btn-link'><Link  className='link-style style1' to ="/Login">Vous n' avez pas un compte ? S'inscrire</Link></button>
   </form>
   

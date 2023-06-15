@@ -3,8 +3,13 @@ import LieuDv from './LieuDv'
 import RecVisiteur from './RecVisiteur'
 import "./PageActive.css"
 import { Link } from 'react-router-dom';
+import Favoris from '../Favoris/Favoris';
 
 function PageActive() {
+  const [favoris, setFavoris] = useState([]);
+  const addToFavorites = (favoris) => {
+    setFavoris(favoris);
+  };
     const [toggleState, setToggleState] = useState(1);
 
     const toggleTab = (index) => {
@@ -25,9 +30,13 @@ function PageActive() {
           Recommandés
         </button>
   </div>
-  {
-    toggleState===1 ? <LieuDv/>:<RecVisiteur/>
-  }
+  {toggleState === 1 ? (
+        <LieuDv addToFavorites={addToFavorites} />
+      ) : (
+        <RecVisiteur />
+      )}
+      <Favoris  />
+      
 
     
     </>

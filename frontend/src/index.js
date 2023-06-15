@@ -11,10 +11,15 @@ import Login from './containers/AUth/Login';
 import Forgetpasswd from './containers/Passwd/Forgetpasswd';
 import RecVisiteur from './containers/Recommended-Visiteur/RecVisiteur';
 import Favoris from './containers/Favoris/Favoris';
+import Main from './containers/Main';
 const router = createBrowserRouter([
   {
   path:"/",
    element:<App/>,
+} ,
+{
+  path:"/main",
+   element:<Main/>,
 } ,
 {
   path:"/LieuDV",

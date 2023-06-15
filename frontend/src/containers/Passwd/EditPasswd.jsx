@@ -3,37 +3,56 @@ import './EditPasswd.css'
 import ClearIcon from '@mui/icons-material/Clear';
 
 function EditPasswd() {
+  const [currentPassword, setCurrentPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+
+  const handlePasswordChange = (e) => {
+    e.preventDefault();
+
+    // Vérification si les mots de passe correspondent
+    if (newPassword !== confirmPassword) {
+      alert("Les mots de passe ne correspondent pas.");
+      return;
+    };
+    setCurrentPassword('');
+    setNewPassword('');
+    setConfirmPassword('');
+
+    alert("Mot de passe modifié avec succès !");
+  };
   return (
     <>
-    <div className='container-Editpasswd'>
-     <form>
-    <ClearIcon   sx={{ fontSize: "20px", marginLeft: "90%",marginTop: "6%"}}/>
-    <h3 >Modifier mon mot de passe</h3>
     <div className='display'>
       <div className='input-info'>
     <input 
-       name="email"
-       type="password"
-       placeholder='Mot de passe actuel'
+      name="currentPassword"
+      type="password"
+      placeholder='Mot de passe actuel'
+      value={currentPassword}
+      onChange={(e) => setCurrentPassword(e.target.value)}
        />
       </div>    
 <div className='input-info'>
     <input 
-     name ="password"
-    type='password'
-    placeholder='Nouveau mot de passe'
+      name="newPassword"
+      type='password'
+      placeholder='Nouveau mot de passe'
+      value={newPassword}
+      onChange={(e) => setNewPassword(e.target.value)}
 />
 </div>
 <div className='input-info'>
     <input 
-     name ="password"
+    name="confirmPassword"
     type='password'
-    placeholder='Confimer votre mot de passe'
+    placeholder='Confirmer votre mot de passe'
+    value={confirmPassword}
+    onChange={(e) => setConfirmPassword(e.target.value)}
 /></div>
 </div>
-<button className='btn-confirm' type='submit'>Confirmer</button>    
-  </form>
-  </div>
+<button className='btn-confirm' type='submit' onClick={handlePasswordChange}>Confirmer</button>    
+
   </>
   )
 }

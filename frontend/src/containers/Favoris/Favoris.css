@@ -1,4 +1,7 @@
-
+*{
+    font-family: 'Jost', sans-serif;
+font-family: 'Urbanist', sans-serif;
+}
 .container-fav{
     background-color: #FEFDF7;
     height: 100%;

@@ -11,6 +11,11 @@ import Login from './containers/AUth/Login';
 import Forgetpasswd from './containers/Passwd/Forgetpasswd';
 import RecVisiteur from './containers/Recommended-Visiteur/RecVisiteur';
 import Favoris from './containers/Favoris/Favoris';
+import PageActive from './containers/Recommended-Visiteur/PageActive';
+import Compte from './containers/Passwd/Compte';
+import EditPasswd from './containers/Passwd/EditPasswd';
+import ListP from './containers/Passwd/ListP';
+
 const router = createBrowserRouter([
   {
   path:"/",
@@ -40,9 +45,27 @@ const router = createBrowserRouter([
    element:<Forgetpasswd/>
 },
 { 
+  path:"/EditPasswd",
+   element:<EditPasswd/>
+},
+{ 
   path:"/Favoris",
    element:<Favoris/>
+},
+{ 
+  path:"/PageActive",
+   element:<PageActive/>
+},
+{
+  path:"/Compte",
+   element:<Compte/>
+},
+{
+  path:"/ListP",
+  element:<ListP/>
 }
+
+
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

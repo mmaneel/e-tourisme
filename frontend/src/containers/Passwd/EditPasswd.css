@@ -1,13 +1,12 @@
 .container-Editpasswd {
-    display: flex ;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    max-width: 500px;
-    width: 100%;
-    margin: auto;
-  }
+  display: flex ;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  max-width: 500px;
+  width: 100%;
+  margin: auto;}
   .container-Editpasswd > form {
     display: flex ;
     flex-direction: column;
@@ -20,11 +19,12 @@
   }
  
   .container-Editpasswd h3{
-    font-size: 20px;
+    font-size: 13px;
     color: #162641;
     text-align: left;
     
   }
+  
   
   .container-Editpasswd .display{
     display: flex;
@@ -38,6 +38,14 @@
     width: 90%;
     position: relative;
     margin-bottom: 15px;  
+  }
+  .container-Editpasswd .input-info-icon{
+    display: flex ;
+    flex-direction: column;
+    text-align: left;
+    width: 100%;
+    position: relative;
+    margin-bottom: 15px; 
   }
    .container-Editpasswd .input-info input{
     margin-top: 4px;
@@ -58,8 +66,40 @@
     font-weight:500;
     margin-top: 18PX;
     position: relative;
-    left: 25%;
+    left: 23%;
   }
+  .container-Editpasswd .editpasswd-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    align-items: center;
+  }
+  .container-Editpasswd .fav-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    color: #162641;
+  }
+  .container-Editpasswd .buton {
+    display: inline-block;
+    padding: 3px 7px;
+    background-color: #C1DCAB;
+    color:#162641;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  .container-Editpasswd .buton.primary {
+    background-color: #fed69b;
+    color: #162641;
+  }
+  
+
+ 
   
   
 /* Responsive styles */

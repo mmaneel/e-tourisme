@@ -1,10 +1,10 @@
 import React,{useState,useEffect} from 'react'
 import './Login.css'
-import { useNavigate, NavLink } from "react-router-dom";
+import { useNavigate, NavLink, Link } from "react-router-dom";
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import ClearIcon from '@mui/icons-material/Clear';
-import LOGO from "../../Assests/LOGO.png"
+
 
 function Login(props) {
   const initialeValues={email:"",password:""};
@@ -77,7 +77,7 @@ function Login(props) {
     
     <form onSubmit={handleSubmit}>
     <ClearIcon   sx={{ fontSize: "20px", marginLeft: "90%",marginTop: "2%"}}/>
-    <img src={LOGO} alt="logo" />
+    <img src='/LOGO.png' alt="logo" />
     <h2 >Bienvenue  à  ZDestination </h2>
     <span>Créez un compte, une experience exptionnelle vous attend ! </span>
       <div className='input-info'>
@@ -90,7 +90,7 @@ function Login(props) {
        onChange={handlechange}/>
        <p style={{ color: 'red' , fontSize:'12px'}}>{formErrors.email}</p>
       </div>
-      
+    
 <div className='input-info'>
 <label >Mot de passe</label>
     <input 
@@ -113,8 +113,8 @@ function Login(props) {
     
 </div>
     
-    <button className='btn-inscrire' type='submit'>S'inscrire</button>
-    <button className='btn-link' onClick={()=>props.onFormSwitch('Register')}>Vous avez déja un compte ? Se connecter</button>
+    <button className='btn-inscrire' type='submit'><Link className='link-style' to ="/LieuDV ">S'inscrire</Link></button>
+    <button className='btn-link' ><Link className='link-style' to ="/Register">Vous avez déja un compte ? Se connecter</Link></button>
   </form>
   
   </div>

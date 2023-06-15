@@ -1,10 +1,14 @@
 import logo from './logo.svg';
 import React,{useState} from 'react'
 import './App.css';
-import Login from './Components/AUth/Login';
-import Register from './Components/AUth/Register';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import EditPasswd from './Components/EditPasswd/EditPasswd';
+import Login from './containers/AUth/Login';
+import Register from './containers/AUth/Register';
+import { BrowserRouter as Router, Route, Switch,Routes } from 'react-router-dom';
+import EditPasswd from './containers/Passwd/EditPasswd';
+import LieuDv from './containers/Recommended-Visiteur/LieuDv';
+import RecVisiteur from './containers/Recommended-Visiteur/RecVisiteur';
+import Forgetpasswd from './containers/Passwd/Forgetpasswd';
+
 
 function App() {
   const[currentForm,setCurrentForm]= useState('Login')
@@ -14,10 +18,14 @@ function App() {
   }
   return (
     <div className="App">
-       
-      {currentForm === "Login" ?<Login onFormSwitch={toggleform}/>:<Register onFormSwitch={toggleform}/>}
-      {/*<EditPasswd/>*/}
-
+     <Routes>
+        
+        <Route exact path="/" element={<Login/>}/>
+        
+     
+    </Routes>
+    
+      
       
     </div>
   );

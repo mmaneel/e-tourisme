@@ -87,3 +87,43 @@
   top: 30%;
   border: none;
 }
+.container-log .link-style{
+  text-decoration: none;
+  color: #162641;
+ 
+}
+.container-log .style1{
+  color: #162641;
+}
+
+@media screen and (max-width: 768px) {
+  .container-log > form {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container-log > form {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .container-log h2 {
+    font-size: 20px;
+  }
+
+  .container-log span {
+    font-size: 10px;
+  }
+
+  .container-log .btn-inscrire {
+    width: 50%;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .container-log .btn-link {
+    padding-top: 20px;
+    font-size: 8px;
+  }
+}

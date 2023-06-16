@@ -1,13 +1,38 @@
-import React ,{useState} from 'react'
+import React ,{useState,useEffect} from 'react'
 import StarIcon from '@mui/icons-material/Star';
 import"./Favoris.css"
 import { Link } from 'react-router-dom';
-function Favoris({ favoris }) {
-  if (!favoris) {
-    return null; // or return a loading state if needed
-  }
+function Favoris({favoris}) {
+  const [lieux,setLieux] =useState( [
+    { id: 1, nom: 'Lieu 1', favori: false, region: 'Lieu', color: '#C1DCAB' },
+    { id: 2, nom: 'Lieu 2', favori: false, region: 'Lieu', color: '#88AFDE' },
+    { id: 3, nom: 'Lieu 3', favori: false, region: 'Lieu', color: '#F7A832' },
+  ]);
+  const [favori, setFavori] = useState([]);
+  const addToFavorites = (lieu) => {
+    setFavori([...favori, lieu]);
+  };
+  useEffect(() => {
+    const favoris = lieux.filter((e) => e.favori);
+    addToFavorites(favoris);
+  }, [lieux, addToFavorites]);
+
+  const toggleFavorite = (id) => {
+    const updatedLieux = lieux.map((e) => {
+      if (e.id === id) {
+        return { ...e, favori: !e.favori };
+      } else {
+        return e;
+      }
+    });
+
+    setLieux(updatedLieux);
+  };
+ 
   
-    /*const tab=[
+  
+  
+    const tab=[
         {id:1,nom:'Plage',region:'Oran',star:'3.5'},
         {id:2,nom:'Bhar',region:'Alger',star:'4.5'},
         {id:3,nom:'Plage',region:'tizi',star:'4.5'},
@@ -16,13 +41,18 @@ function Favoris({ favoris }) {
         {id:6,nom:'Bhar',region:'Oran',star:'4.5'},
         {id:7,nom:'Plage',region:'Oran',star:'4.5'},
         {id:8,nom:'Bhar',region:'Oran',star:'4.5'},
-    ]*/
+    ]
     
   return (
     <>
     <div className='container-fav'>
     <img className='ligne-pic' src='./ligne.png' alt="photo"/>
-        <h1 style={{ color: '#162641' , textAlign:'center',marginBottom:'70px',marginTop:'0px',paddingTop:'0px'}}>Mes Favoris</h1>
+    
+        <h1 
+        style={{ color: '#162641' , textAlign:'center',
+        marginBottom:'70px',marginTop:'0px',paddingTop:'0px'}}>Mes Favoris</h1>
+        
+    
     {favoris.map((e)=>(
       <div className='lieu-form-fav'  key={e.id}>
         <img src='./mosq.jpg' alt="photo"/>
@@ -45,7 +75,6 @@ function Favoris({ favoris }) {
                aut aspernatur saepe ut consectetur sint et totam atque qui saepe ut
                aut aspernatur saepe ut consectetur sint et totam atque qui saepe ut
                aut aspernatur saepe ut consectetur sint et totam atque qui saepe ut
-               aut aspernatur saepe ut consectetur sint et totam atque qui saepe ut
                
                  </p>
               
@@ -54,6 +83,7 @@ function Favoris({ favoris }) {
                 </div>
        
       </div>))}
+    
       <img className='ligne-pic1' src='./ligne1.png' alt="photo"/>
       <img className='ligne-pic2' src='./ligne2.png' alt="photo"/>
     </div>

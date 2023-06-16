@@ -39,7 +39,9 @@ function Register(props) {
       .then((res) => {
         const token = res.data.access;
         setAuthToken(token); 
-        localStorage.setItem('token',res.data.token)
+        localStorage.setItem('token',token)
+        axios
+        .get()
         navigate("/LieuDv")
         
        // alert("login successful!");

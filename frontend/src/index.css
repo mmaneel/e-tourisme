@@ -11,3 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Jost";
+  src: url("../public/Jost.ttf");
+}
+
+.mapboxgl-ctrl-geocoder{
+  box-shadow:none !important;
+ 
+ 
+}
+.mapboxgl-ctrl-top-right{
+  right: 80% !important;
+  top: 30px !important;
+  z-index: 90 !important;
+  
+}
+.mapboxgl-popup-close-button{
+  border-radius: 0 0 0 0 !important;
+  border-color: transparent !important;
+}
+

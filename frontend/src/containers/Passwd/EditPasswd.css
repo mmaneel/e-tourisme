@@ -1,0 +1,150 @@
+.container-Editpasswd {
+  display: flex ;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  max-width: 500px;
+  width: 100%;
+  margin: auto;}
+  .container-Editpasswd > form {
+    display: flex ;
+    flex-direction: column;
+     width: 70%;
+    border: 1px solid #dfdfdf;
+    padding:0px 0px 25px 28px;
+    border-radius: 20px;
+    background: #FEFDF7;
+    
+  }
+ 
+  .container-Editpasswd h3{
+    font-size: 13px;
+    color: #162641;
+    text-align: left;
+    
+  }
+  
+  
+  .container-Editpasswd .display{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .container-Editpasswd .input-info{
+    display: flex ;
+    flex-direction: column;
+    text-align: left;
+    width: 90%;
+    position: relative;
+    margin-bottom: 15px;  
+  }
+  .container-Editpasswd .input-info-icon{
+    display: flex ;
+    flex-direction: column;
+    text-align: left;
+    width: 100%;
+    position: relative;
+    margin-bottom: 15px; 
+  }
+   .container-Editpasswd .input-info input{
+    margin-top: 4px;
+  height: 20px;
+    border: 1px solid #dfdfdf;
+    border-radius: 12px;
+    padding: 10px;
+    background-color: #F6F2E6;
+    color: #635D5D;  
+  }
+  .container-Editpasswd .btn-confirm{
+    background-color: #C1DCAB;
+    border: none;
+    width: 45%;
+    height: 35px;
+    font-size: 16px;
+    border-radius: 12px;
+    font-weight:500;
+    margin-top: 18PX;
+    position: relative;
+    left: 23%;
+  }
+  .container-Editpasswd .editpasswd-box{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+    align-items: center;
+  }
+  .container-Editpasswd .fav-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    color: #162641;
+  }
+  .container-Editpasswd .buton {
+    display: inline-block;
+    padding: 3px 7px;
+    background-color: #C1DCAB;
+    color:#162641;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  .container-Editpasswd .buton.primary {
+    background-color: #fed69b;
+    color: #162641;
+  }
+  
+
+ 
+  
+  
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .container-Editpasswd > form {
+    width: 80%;
+    padding: 0px 0px 20px 24px;
+  }
+
+  .container-Editpasswd h3 {
+    font-size: 18px;
+  }
+
+  .container-Editpasswd .input-info input {
+    height: 18px;
+    padding: 8px;
+  }
+
+  .container-Editpasswd .btn-confirm {
+    width: 50%;
+    height: 30px;
+    font-size: 14px;
+    left: 20%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container-Editpasswd > form {
+    width: 90%;
+    padding: 0px 0px 15px 20px;
+  }
+
+  .container-Editpasswd h3 {
+    font-size: 16px;
+  }
+
+  .container-Editpasswd .input-info input {
+    height: 16px;
+    padding: 6px;
+  }
+
+  .container-Editpasswd .btn-confirm {
+    width: 55%;
+    height: 25px;
+    font-size: 12px;
+    left: 15%;
+  }
+}

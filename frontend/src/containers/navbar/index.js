@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useWindowSize } from '../../hooks/WindowSize';
 import { useScrollPosition } from '../../hooks/ScrollPosition';
-import logo from './Logo 2.svg'
+
 
 
 const NavBar = () => {
@@ -42,7 +42,7 @@ const NavBar = () => {
     return (
         
         <div className= 'w-full bg-blueGray flex flex-row justify-between text-black text-lg px-20 py-6'>
-        <img className='w-8' src={logo}></img>
+        <img className='w-8' src='/logoZD.svg'></img>
        
         <input
 				type='checkbox'

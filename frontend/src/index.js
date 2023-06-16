@@ -12,6 +12,8 @@ import Forgetpasswd from './containers/Passwd/Forgetpasswd';
 import RecVisiteur from './containers/Recommended-Visiteur/RecVisiteur';
 import Favoris from './containers/Favoris/Favoris';
 import Main from './containers/Main';
+import Search from './containers/Search';
+
 const router = createBrowserRouter([
   {
   path:"/",
@@ -20,6 +22,10 @@ const router = createBrowserRouter([
 {
   path:"/main",
    element:<Main/>,
+} ,
+{
+  path:"/search",
+   element:<Search/>,
 } ,
 {
   path:"/LieuDV",

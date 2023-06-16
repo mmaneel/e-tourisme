@@ -60,9 +60,9 @@ const NavBar = () => {
 			</label>
         
             <div className='flex flex-row justify-between gap-8 font-medium'>
-                <a href='#about'><button className='hover:text-orange hover:underline mt-17'>Accueil </button></a>
-                <a href='#services'><button className=' hover:underline mt-17'>Recherche</button></a>
-                <a href='#projects'><button className=' hover:underline mt-17'>Actualités </button></a>
+                <a href='/main'><button className='hover:text-orange hover:underline mt-17'>Accueil </button></a>
+                <a href='/search'><button className='hover:text-orange hover:underline mt-17'>Recherche</button></a>
+                <a href='#projects'><button className='hover:text-orange hover:underline mt-17'>Actualités </button></a>
             </div>
             <div className='flex flex-row justify-between gap-8 font-medium'>
                 <a href='#services'><button className='hover:bg-[#CBDEEC] hover:rounded-2xl px-2   mt-17'>Se connecter </button></a>

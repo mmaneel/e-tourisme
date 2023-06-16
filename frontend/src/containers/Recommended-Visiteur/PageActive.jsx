@@ -7,13 +7,14 @@ import Favoris from '../Favoris/Favoris';
 
 function PageActive() {
   const [favoris, setFavoris] = useState([]);
-  const addToFavorites = (favoris) => {
-    setFavoris(favoris);
-  };
     const [toggleState, setToggleState] = useState(1);
 
     const toggleTab = (index) => {
       setToggleState(index);
+    };
+    
+    const addToFavorites = (lieu) => {
+      setFavoris([...favoris, lieu]);
     };
   return (
     <>
@@ -35,7 +36,7 @@ function PageActive() {
       ) : (
         <RecVisiteur />
       )}
-      <Favoris  />
+      
       
 
     

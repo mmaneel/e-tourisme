@@ -1,0 +1,25 @@
+.container-List-users{
+    background-color: white;
+    width: 75%;
+    height: 490px;
+    margin-top: 110px;
+    margin-left: 40px;
+    border-radius: 10px;
+}
+.container-List-users .titre-li{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 400px;
+    margin-left: 27%;
+   
+}
+.container-List-users .ul-user1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 700px;
+    margin-left: 7%;
+    
+}

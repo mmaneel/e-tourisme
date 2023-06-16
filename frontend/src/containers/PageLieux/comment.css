@@ -1,0 +1,37 @@
+
+.comment {
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0px 2px 7px rgba(84, 47, 21, 0.21);
+    border-radius: 20px;
+    margin: 1em;
+    height: 130px;
+    width: 600px;
+  
+}
+.comment .profile_comment{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    width:130px;
+}
+.comment .text_comment{
+    width: 470px;
+    background: rgba(203, 222, 236, 0.5);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding-top: 10px;
+}
+.comment .text_comment .h-name{
+    padding: 0px;
+    font-size: 16px;
+   margin: 10px 10px 0px 10px;
+   
+}
+.comment .text_comment .spn-text{
+    font-size: 12px;
+    font-weight: 400;
+    margin-left: 10px;
+    margin-top: 3px;
+}

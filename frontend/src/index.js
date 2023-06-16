@@ -1,10 +1,9 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React,{useState} from 'react';
+import  { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
-import { createBrowserRouter,RouterProvider,Route } from 'react-router-dom';
+import { BrowserRouter as Router} from 'react-router-dom';
 import LieuDv from './containers/Recommended-Visiteur/LieuDv';
 import Register from './containers/AUth/Register';
 import Login from './containers/AUth/Login';
@@ -15,6 +14,11 @@ import PageActive from './containers/Recommended-Visiteur/PageActive';
 import Compte from './containers/Passwd/Compte';
 import EditPasswd from './containers/Passwd/EditPasswd';
 import ListP from './containers/Passwd/ListP';
+/*const favoris = [
+  { id: 1, nom: 'Favori 1', star: 5, region: 'Region 1' },
+  { id: 2, nom: 'Favori 2', star: 4, region: 'Region 2' },
+  { id: 3, nom: 'Favori 3', star: 3, region: 'Region 3' },
+];
 
 const router = createBrowserRouter([
   {
@@ -50,7 +54,7 @@ const router = createBrowserRouter([
 },
 { 
   path:"/Favoris",
-   element:<Favoris/>
+   element:<Favoris favoris={favoris} />
 },
 { 
   path:"/PageActive",
@@ -63,7 +67,8 @@ const router = createBrowserRouter([
 {
   path:"/ListP",
   element:<ListP/>
-}
+},
+
 
 
 ]);
@@ -71,5 +76,16 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <RouterProvider router={router}/>
+);*/
+const rootElement = document.getElementById('root');
+const root = createRoot(rootElement)
+root.render(
+    <Router>
+       
+           <App />
+      
+    </Router>
+   
+  
 );
 reportWebVitals();

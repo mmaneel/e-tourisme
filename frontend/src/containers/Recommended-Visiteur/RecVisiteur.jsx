@@ -12,7 +12,12 @@ function RecVisiteur() {
     {id:1,nom:'Plage',region:'Oran',star:'3.5',color:'#C1DCAB'},
     {id:2,nom:'Bhar',region:'Alger',star:'4.5',color:'#88AFDE'},
     {id:3,nom:'Plage',region:'tizi',star:'4.5',color:'#F7A832'},
-    {id:4,nom:'Bhar',region:'Oran',star:'4.5',color:'#C1DCAB'},]
+    {id:4,nom:'Bhar',region:'Oran',star:'4.5',color:'#C1DCAB'},
+    {id:5,nom:'Bhar',region:'Oran',star:'4.5',color:'#C1DCAB'},
+    {id:6,nom:'Bhar',region:'Oran',star:'4.5',color:'#C1DCAB'},
+    {id:7,nom:'Bhar',region:'Oran',star:'4.5',color:'#C1DCAB'},
+    {id:8,nom:'Bhar',region:'Oran',star:'4.5',color:'#C1DCAB'},
+    {id:8,nom:'Bhar',region:'Oran',star:'4.5',color:'#C1DCAB'},]
   return (
     <div>
       

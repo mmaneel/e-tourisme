@@ -1,0 +1,5 @@
+.container-admin-dash{
+    display: flex;
+    flex-direction: row;
+    background-color: #FEFDF7;
+}

@@ -1,0 +1,33 @@
+.cointainer-ZDlist .ZD-right{
+    width: 225px;
+    height: 609px;
+    border-top-right-radius: 160px;
+    background-color: #CBDEEC;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cointainer-ZDlist .ZD-right img{
+    width: 150px;
+    height: 100px;
+    margin-top: 90px;
+}
+.cointainer-ZDlist .ZD-right .ul-ZD{
+    width: max-content;
+    margin-top: 30px;
+    border-top: #162641 solid 1px;
+}
+.cointainer-ZDlist .ZD-right .li-ZD{
+    color: 162641;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   border-bottom: 1px solid  #162641;
+   width: 180px;
+   height: 50px;
+   
+}
+.cointainer-ZDlist .ZD-right .li-ZD-activate{
+    color: white;
+}

@@ -14,6 +14,8 @@ import ZdestinationList from './containers/admin/ZdestinationList';
 import ListUsers from './containers/admin/ListUsers';
 import Dashboard from './containers/admin/Dashboard';
 import Lieu from './containers/PageLieux/page_lieu'
+import Main from './containers/Main';
+import Search from './containers/Search'
 
 function App() {
   const [favorites, setFavorites] = useState([]);
@@ -41,6 +43,9 @@ function App() {
         <Route path="/ZdestinationList" element={<ZdestinationList/>} />
         <Route path="/ListUsers" element={<ListUsers/>} />
         <Route path="/Lieu" element={<Lieu/>} />
+        <Route path="/main" element={<Main/>} />
+        <Route path="/search" element={<Search/>} />
+       
       
      
       </Routes>

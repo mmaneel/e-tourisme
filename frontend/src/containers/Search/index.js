@@ -23,21 +23,28 @@ function Search() {
   const [category, setCategory]=useState(null);
   const [popupInfo, setPopupInfo] = useState(null);
   const [shownMonuments, setShownMonuments]=useState(monuments);
+  const [searchClicked, setSearchClicked] = useState(false);
 
   useEffect(() => {
-    // Filter the monuments based on theme and category
-    const filteredMonuments = monuments.filter((monument) => {
-      if (theme && monument.theme !== theme) {
-        return false;
-      }
-      if (category && monument.category !== category) {
-        return false;
-      }
-      return true;
-    });
-    setShownMonuments(filteredMonuments);
-  }, [theme, category]);
+    if (searchClicked) {
+      // Filter the monuments based on theme and category
+      const filteredMonuments = monuments.filter((monument) => {
+        if (theme && monument.theme !== theme) {
+          return false;
+        }
+        if (category && monument.category !== category) {
+          return false;
+        }
+        return true;
+      });
+      setShownMonuments(filteredMonuments);
+      setSearchClicked(false); // Réinitialiser l'état searchClicked
+    }
+  }, [searchClicked, theme, category]);
 
+  const handleSearchClick = () => {
+    setSearchClicked(true);
+  };
   const handleThemeChange =(event)=>{
     setTheme(event.target.value)
   }
@@ -66,8 +73,9 @@ const pins = useMemo(
   const Geocoder = () => { 
     const ctrl = new MapBoxGeocoder({
       accessToken: "pk.eyJ1IjoiaW5lc2JtenoiLCJhIjoiY2xpd2EzOHB3MGVnZzNycmxuaWVleXVkbSJ9.qD2tXOMKi1rbqldo1mb2zg",
-      marker: true,
+      marker: false,
       placeholder:'Search',
+      countries:'dz',
       mapboxgl: mapboxgl,
    });
     useControl(() => ctrl);
@@ -91,7 +99,7 @@ const pins = useMemo(
                           zoom: 11.5,
                         }}
                    >
-                      <div className='absolute top-6 z-20 px-4 py-2 rounded-r-xl bg-white flex flex-row justify-between items-center w-2/3 h-16 gap-3'>
+                      <div className='absolute top-6 z-20 px-4 py-2 rounded-r-xl bg-white flex flex-row justify-between items-center w-[60%] h-16 gap-3'>
                          <div className='w-2/4 h-full '><Geocoder/></div>
                          <div className='flex flex-row justify-between items-center w-full h-full gap-3'>
                             <div className='border-l border-bgshadow h-full'></div>
@@ -123,7 +131,7 @@ const pins = useMemo(
                             <div className='border-l border-bgshadow h-full'></div>
                             <div className='h-full w-full flex flex-col items-center justify-center '>
                               <div className='h-2/3 w-full flex flex-row items-center justify-center'>
-                                <button className=' bg-orange rounded-2xl px-6 text-base font-medium'>Rechercher</button>
+                                <button className=' bg-orange rounded-2xl px-6 text-base font-medium' onClick={handleSearchClick}>Rechercher</button>
                               </div>
                             </div>
                         </div>

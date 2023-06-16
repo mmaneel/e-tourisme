@@ -11,39 +11,43 @@
   .container-log > form {
     display: flex ;
     flex-direction: column;
-
     align-items: center;
-    width: 70%;
-    
+    width: 79%;
     border: 1px solid #dfdfdf;
     padding: 20px;
     border-radius: 20px;
     background: #FEFDF7;
+    height: 550px;
     
   }
-  .container-log img{
-    width: 70px;
-    height: 70px;
+  .container-log .ctr-img{
+    width: 100px;
+    height: 100px;
     padding: 5% 40% 0% 40%;
+    border: #162641 solid  1px;
     
   }
-  .container-log h2{
+  .container-log .h-ctr{
     font-size: 25px;
     color: #162641;
     
   }
-  .container-log span{
-    font-size: 11px;
+  .container-log .sp-ctr{
+    font-size: 10px;
     color: #162641;
-    margin-top: -20px;
-    margin-bottom: 35px;
+    margin-bottom: 10px;
+    
+
   }
   .container-log .input-info{
+
     display: flex ;
     flex-direction: column;
     text-align: left;
     width: 90%;
     position: relative;
+    margin-top: 5px;
+    
    
     
   }
@@ -54,9 +58,9 @@
   
   .container-log .input-info input{
     margin-top: 4px;
-  height: 20px;
+  height: 40px;
     border: 1px solid #dfdfdf;
-    border-radius: 12px;
+    border-radius: 7px;
     padding: 10px;
     background-color: #F6F2E6;
     color: #635D5D;
@@ -65,8 +69,8 @@
   .container-log .btn-inscrire{
     background-color: #C1DCAB;
     border: none;
-    width: 45%;
-    height: 35px;
+    width: 130px;
+    height: 45px;
     font-size: 16px;
     border-radius: 12px;
     font-weight:500;
@@ -75,9 +79,8 @@
   .container-log .btn-link{
     border: none;
     background-color:transparent;
-
-    padding-top: 30px;
-    font-size: 10px;
+    padding-top: 20px;
+    font-size: 13px;
 
   }
 .container-log .btn-visibility{

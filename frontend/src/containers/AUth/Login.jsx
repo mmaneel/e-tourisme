@@ -82,9 +82,9 @@ function Login(props) {
     
     <form onSubmit={handleSubmit}>
     <ClearIcon   sx={{ fontSize: "20px", marginLeft: "90%",marginTop: "2%"}}/>
-    <img src='/LOGO.png' alt="logo" />
-    <h2 >Bienvenue  à  ZDestination </h2>
-    <span>Créez un compte, une experience exptionnelle vous attend ! </span>
+    <img className ='ctr-img' src='/LOGO.png' alt="logo" />
+    <h2 className='h-ctr' >Bienvenue  à  ZDestination </h2>
+    <span className='sp-ctr'>Créez un compte, une experience exptionnelle vous attend ! </span>
     <div className='input-info'>
       <label >Name</label>
     <input 
@@ -116,10 +116,10 @@ function Login(props) {
     <a className='btn-visibility' onClick={togglePassword}>
     {passwordType === "password" ? (
     <VisibilityIcon 
-         sx={{ fontSize: "18px", marginTop: "5px", color: "#000" ,}}/>
+         sx={{ fontSize: "18px", marginTop: "20px", color: "#000" ,}}/>
     ) : (
       <VisibilityOffIcon
-        sx={{ fontSize: "18px", marginTop: "5px", color: "#000" ,}}
+        sx={{ fontSize: "18px", marginTop: "20px", color: "#000" ,}}
       />
     )}
       </a>

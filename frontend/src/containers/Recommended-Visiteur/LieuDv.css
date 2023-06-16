@@ -1,0 +1,146 @@
+
+
+.container-DV{
+  background-color: #FEFDF7;
+  height: 100%;
+  padding-top: 100px;
+}
+
+.container-DV .lieu-form-DV{
+  display: flex;
+  flex-direction: row;
+  width: 990px;
+  height:190px;  
+  margin: auto;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow:rgba(0, 0, 0, 0.1) 8px 1px 8px;
+    
+}
+.container-DV .lieu-form-DV img{
+  width: 25% ;  
+}
+.container-DV .lieu-form-R-DV{
+  padding: 25px 35px 0px 15px;
+ 
+  width: 700px;
+  
+}
+.container-DV .lieu-name-DV{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-align: start; 
+ 
+ 
+}
+.container-DV .lieu-name-DV h3{ 
+  margin: 0px 0px 3px 0px;
+  font-weight: 600;
+  color: #162641;
+}
+.container-DV .icon-star{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-top: 4px; 
+  border: none;
+  background-color: transparent;  
+}
+.container-DV .icon-star img{
+ width: 20px;
+ height: 20px;
+ cursor: pointer;
+  
+} 
+.lieu-form-R-DV p{
+  color:#162641; 
+  margin: 0px;
+  
+}
+.container-DV .dscp-actl{
+  display: flex;
+  flex-direction:row;
+  height: 80px;
+  overflow: hidden;
+  margin-top: 6px;
+ 
+  
+}
+.container-DV .dscp-actl .region-name-DV {
+  width:200px;
+}
+.container-DV .dscp-actl .dv1 {
+  width:570px;
+  padding-left: 5px;
+  padding-top: 6px;
+}
+
+
+.container-DV .btn-show-detl{
+  position: relative;
+  top: -17px;
+  left: 85%;
+  border: none;
+  background-color: transparent;
+  color: #c3c3c3;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+.rec-list .REC{
+  width: 100%;
+  height: 40px;
+  padding-top: 18px;
+}
+.rec-list .rec-r{
+  border-top-left-radius: 20px;
+  background-color: #FEFDF7;
+  cursor: pointer;
+  box-shadow:rgba(0, 0, 0, 0.1) -2px -8px 8px
+}
+.rec-list .rec-l {
+  color: #635D5D;
+  font-weight:500;
+  cursor: pointer;
+
+}
+.rec-list .rec-l::before {
+  background-color: rgba(246, 242, 239, 0.26);
+  font-weight:500;
+  cursor: pointer;
+  z-index: -1 ;
+
+}
+.rec-list .REC .link-style{
+  text-decoration: none;
+  color: #162641;
+  padding-left: 40%;
+ 
+}
+.rec-list .rec-l .link-style{
+  text-decoration: none;
+  color: #635D5D;
+ 
+}
+
+
+
+
+
+
+
+
+  
+  

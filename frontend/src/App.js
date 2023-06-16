@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import React,{useState} from 'react'
-import './App.css';
-import Login from './Components/AUth/Login';
-import Register from './Components/AUth/Register';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import EditPasswd from './Components/EditPasswd/EditPasswd';
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, useNavigate, Link,Switch } from 'react-router-dom';
+import Login from './containers/AUth/Login';
+import ReactDOM from 'react-dom';
+import Register from './containers/AUth/Register';
+import EditPasswd from './containers/Passwd/EditPasswd';
+import LieuDv from './containers/Recommended-Visiteur/LieuDv';
+import RecVisiteur from './containers/Recommended-Visiteur/RecVisiteur';
+import Forgetpasswd from './containers/Passwd/Forgetpasswd';
+import Favoris from './containers/Favoris/Favoris';
+import PageActive from './containers/Recommended-Visiteur/PageActive';
+import Fav from './containers/Recommended-Visiteur/Fav';
 
 function App() {
-  const[currentForm,setCurrentForm]= useState('Login')
-  const toggleform=(formName)=>{
-    setCurrentForm(formName)
+  const [favorites, setFavorites] = useState([]);
 
-  }
+  const addToFavorites = (favori) => {
+    setFavorites((prevFavorites) => [...prevFavorites, favori]);
+  };
+
+  const removeFromFavorites = (id) => {
+    setFavorites((prevFavorites) => prevFavorites.filter((favori) => favori.id !== id));
+  };
+
   return (
     <div className="App">
-       
-      {currentForm === "Login" ?<Login onFormSwitch={toggleform}/>:<Register onFormSwitch={toggleform}/>}
-      {/*<EditPasswd/>*/}
-
+     <div>
+      <Routes>
       
+        <Route  path="/" element={<Login/>} />
+        <Route  path="/Register" element={<Register/>} />
+        <Route  path="/Favoris" element={<Fav favorites={favorites} removeFromFavorites={removeFromFavorites} />} />
+        <Route path="/RecVisiteur" element={<RecVisiteur/>} />
+        <Route path="/PageActive" element={<PageActive/>} />
+        <Route path="/LieuDv" element={<LieuDv addToFavorites={addToFavorites}/>}/>
+      
+     
+      </Routes>
+    </div>
     </div>
   );
 }

@@ -1,0 +1,53 @@
+.profile-list .list-p{
+    margin-top: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+    width: 200px; 
+    padding-left: 5%;   
+}
+.try{
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-list .l1-p{
+    width: 170px;
+    height: 50px; 
+    text-align: start;
+    margin-top: 20px;
+    border-radius: 5px;  
+}
+.profile-list .Name-p p{
+    color:  #162641;;
+}
+
+.profile-list{
+    background-color: #FEFDF7;
+    width: 230px;
+    height: 606px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow:inset rgba(0, 0, 0, 0.1) 7px 6px 10px 8px;
+    border: 20px;
+}
+.profile-list .avatar-p{
+    border-radius: 100%;
+    width: 81px;
+    height: 81px;
+    overflow: hidden;
+   margin-top: 26%;
+}
+.profile-list .avatar-p img{
+    width: 81px;
+    height: 81px;
+}
+.profile-list .fav-box{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
+    color: #162641;
+   width: 200px;    
+}

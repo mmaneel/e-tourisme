@@ -10,9 +10,10 @@ import Forgetpasswd from './containers/Passwd/Forgetpasswd';
 import Favoris from './containers/Favoris/Favoris';
 import PageActive from './containers/Recommended-Visiteur/PageActive';
 import Fav from './containers/Recommended-Visiteur/Fav';
-import Dashboard from './containers/admin/Dashboard';
 import ZdestinationList from './containers/admin/ZdestinationList';
 import ListUsers from './containers/admin/ListUsers';
+import Dashboard from './containers/admin/Dashboard';
+import Lieu from './containers/PageLieux/page_lieu'
 
 function App() {
   const [favorites, setFavorites] = useState([]);
@@ -39,6 +40,7 @@ function App() {
         <Route path="/Dashboard" element={<Dashboard/>} />
         <Route path="/ZdestinationList" element={<ZdestinationList/>} />
         <Route path="/ListUsers" element={<ListUsers/>} />
+        <Route path="/Lieu" element={<Lieu/>} />
       
      
       </Routes>

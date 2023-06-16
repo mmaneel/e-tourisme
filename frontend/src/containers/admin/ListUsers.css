@@ -17,9 +17,14 @@
 .container-List-users .ul-user1{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
     width: 700px;
-    margin-left: 7%;
+   
+    
+}
+.container-List-users .li-user1{
+   
+    border: saddlebrown solid 1px;
     
 }

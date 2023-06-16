@@ -5,20 +5,22 @@ import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined
 
 function ListUsers() {
     const data = [
-        { id: 1,profil:<AccountCircleOutlinedIcon/>, name: 'Item 1' ,date: '23-09-2023',icon:<DeleteIcon/> },
-        { id: 2,profil:<AccountCircleOutlinedIcon/>, name: 'Item 2' ,date: '03-08-2023',icon:<DeleteIcon/> },
-        { id: 3,profil:<AccountCircleOutlinedIcon/>, name: 'Item 3' ,date: '25-08-2023',icon:<DeleteIcon/>},
-        { id: 4,profil:<AccountCircleOutlinedIcon/>, name: 'Item 4' ,date: '01-05-2023',icon:<DeleteIcon/>},
-        { id: 5,profil:<AccountCircleOutlinedIcon/>, name: 'Item 5' ,date: '20-04-2023',icon:<DeleteIcon/>},
-        { id: 6,profil:<AccountCircleOutlinedIcon/>, name: 'Item 6' ,date: '05-02-2023',icon:<DeleteIcon/>},
-        { id: 7,profil:<AccountCircleOutlinedIcon/>, name: 'Item 7' ,date: '14-11-2022',icon:<DeleteIcon/>},
+        { id: 1,profil:<AccountCircleOutlinedIcon sx={{width:'40px',height:'40px'}}/>,
+         name: 'Item 1' ,date: '23-09-2023',icon:<DeleteIcon/> },
+        { id: 2,profil:<AccountCircleOutlinedIcon sx={{width:'40px',height:'40px'}}/>,
+         name: 'Item 2' ,date: '03-08-2023',icon:<DeleteIcon/> },
+        { id: 3,profil:<AccountCircleOutlinedIcon sx={{width:'40px',height:'40px'}}/>,
+         name: 'Item 3' ,date: '25-08-2023',icon:<DeleteIcon/>},
+        { id: 4,profil:<AccountCircleOutlinedIcon sx={{width:'40px',height:'40px'}}/>,
+         name: 'Item 4' ,date: '01-05-2023',icon:<DeleteIcon/>},
+        
       ];
       const myList = data.map((item) => (
         <li className='ul-user1' key={item.id}> 
-        <p style={{marginRight:"20%"}}>{item.profil}</p>
-        <p>{item.name}</p>
-        <p style={{marginLeft:'22%',marginRight:"30%"}}>{item.date}</p>
-        <p>{item.icon}</p>
+        <p className='li-user1'>{item.profil}</p>
+        <p className='li-user1 n'>{item.name}</p>
+        <p className='li-user1'>{item.date}</p>
+        <p className='li-user1'>{item.icon}</p>
          </li>
       ));
   return (

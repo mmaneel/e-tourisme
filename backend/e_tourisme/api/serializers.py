@@ -10,3 +10,12 @@ class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model=Evenement
         fields= '__all__'
+
+class AddLieuSerializer(serializers.ModelSerializer):
+    class Meta:
+         model=Lieu
+         fields= '__all__'
+         model=HoraireOuv
+         fields= '__all__'
+         model=Transport
+         fields= '__all__'

@@ -6,6 +6,7 @@ from .models import *
 from .api.serializers import *
 from django.http import Http404
 from rest_framework import status
+from django.core.exceptions import ObjectDoesNotExist
 
 #recherche par thèmes:
 @api_view(['POST'])
@@ -64,15 +65,24 @@ class LieuxView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class eventView(APIView):
+#recuperer tout les evenements
+    def get(self,request):
+       event=Evenement.objects.all()
+       serializer=EventSerializer(event,many=True)
+       return Response(serializer.data)
 #ajout event
-    def post(request):
+    def post(self,request):
           serializer=EventSerializer(data=request.data)
           if serializer.is_valid():
              event, created = Evenement.objects.get_or_create(
-                Nom=serializer.validated_data['titre'],
+                titre=serializer.validated_data['titre'],
                 defaults=serializer.validated_data
             )
              if created:
+                lieuid=serializer.data.get('lieuid')
+                wilaya=Lieu.objects.get(id=lieuid).wilaya
+                print(wilaya)
+                ####
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
              else:
                 return Response(
@@ -80,8 +90,33 @@ class eventView(APIView):
                     status=status.HTTP_200_OK
                 )
           return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class EVentdu(APIView):
+     #delete an event
+     def delete(self,request,pk):
+         event=Evenement.objects.get(id=pk)
+         event=event.delete()
+         serializer=EventSerializer(event)
+         return Response(status=status.HTTP_200_OK)
+     #afficher details event
+     def get(self,request,pk):
+        try: 
+            event=Evenement.objects.get(id=pk)
+            serializer=EventSerializer(event)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except ObjectDoesNotExist:
+            return Response(    {"message": "Event doesn't exists."},status=status.HTTP_400_BAD_REQUEST)
+        
+#ajouter wilaya au favoris
+@api_view(['POST'])     
+def AjoutwilayaFav(request,pk):
+    
     
 #Supprimer lieu
 
 #récupérer details lieu
 
+#ajouter un Lieux avec ses informations
+ '''@api_view(['POST'])
+def Ajout_Lieu(request):
+'''

@@ -99,7 +99,7 @@ const pins = useMemo(
                           zoom: 11.5,
                         }}
                    >
-                      <div className='absolute top-6 z-20 px-4 py-2 rounded-r-xl bg-white flex flex-row justify-between items-center w-[60%] h-16 gap-3'>
+                      <div className='absolute top-6 z-10 px-4 py-2 rounded-r-xl bg-white flex flex-row justify-between items-center w-[60%] h-16 gap-3'>
                          <div className='w-2/4 h-full '><Geocoder/></div>
                          <div className='flex flex-row justify-between items-center w-full h-full gap-3'>
                             <div className='border-l border-bgshadow h-full'></div>

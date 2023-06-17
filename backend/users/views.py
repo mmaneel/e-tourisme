@@ -14,27 +14,28 @@ from rest_framework import status
 
 # view for registering users
 class RegisterView(APIView):
-    # def post(self, request):
-    #     serializer = UserSerializer(data=request.data)
-    #     serializer.is_valid(raise_exception=True)
-    #     serializer.save()
-    #     return Response(serializer.data)
-
-    @api_view(['GET'])
     def post(self, request):
+         serializer = UserSerializer(data=request.data)
+         serializer.is_valid(raise_exception=True)
+         serializer.save()
+         return Response(serializer.data)
+
+    
+    
+    
+    #récupérer tous les utilisateur 
+    def get(self,request):
+
+       #users=UserData.objects.all()
+       #serializer=UserSerializer(users,many=True)
+       #return Response(serializer.data)
+       ##########
         User = get_user_model()
         regular_users = User.objects.filter(is_staff=False, is_superuser=False)
         admin_users = User.objects.filter(is_staff=True, is_superuser=True)
         users = list(regular_users) + list(admin_users)
         serialized_users = UserSerializer(users, many=True)  # Use your serializer here
         return Response(serialized_users.data)
-    
-    #récupérer tous les utilisateur 
-    def get(self,request):
-
-       users=UserData.objects.all()
-       serializer=UserSerializer(users,many=True)
-       return Response(serializer.data)
 
     #supprimer un utilisateur 
     
@@ -45,8 +46,14 @@ class RegisterView(APIView):
             return Response(status=status.HTTP_204_NO_CONTENT)
         except UserData.DoesNotExist:
             return Response({'error': 'User not found.'}, status=status.HTTP_404_NOT_FOUND)
-
-
+@api_view(['GET'])
+def post_admin(self, request):
+        User = get_user_model()
+        regular_users = User.objects.filter(is_staff=False, is_superuser=False)
+        admin_users = User.objects.filter(is_staff=True, is_superuser=True)
+        users = list(regular_users) + list(admin_users)
+        serialized_users = UserSerializer(users, many=True)  # Use your serializer here
+        return Response(serialized_users.data)
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def user_role(request):

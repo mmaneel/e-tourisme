@@ -130,7 +130,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import ClearIcon from '@mui/icons-material/Clear';
 
 function Login(props) {
-  const initialValues = { email: '', password: '' };
+  const initialValues = { name:'',email: '', password: '' };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
@@ -193,6 +193,18 @@ function Login(props) {
             Créez un compte, une expérience exceptionnelle vous attend!
           </span>
           <div className="w-full relative">
+            <label className="text-[#50504F]">Nom </label>
+            <input
+              name="name"
+              value={formValues.name}
+              type="text"
+              placeholder="Nom"
+              onChange={handleChange}
+              className=" rounded-2xl py-1 px-4  w-full bg-[#F6F2E6] text-gray-600"
+            />
+            
+          </div>
+          <div className="w-full relative">
             <label className="text-[#50504F]">Email</label>
             <input
               name="email"
@@ -229,17 +241,17 @@ function Login(props) {
             )}
           </div>
 
-          <button className="px-6 py-1 bg-[#C1DCAB] border-none w-auto h-auto text-lg rounded-2xl font-semibold mt-6">
-            <Link className="text-[#162641]" to="/LieuDV">
+          <button  onClick={props.handleConnectClick} className="px-6 py-1 bg-[#C1DCAB] border-none w-auto h-auto text-lg rounded-2xl font-semibold mt-6">
+            
               S'inscrire
-            </Link>
+           
           </button>
           <button
             className="border-none bg-transparent text-sm pt-4 text-[#162641]"
             onClick={props.handleCon}
           >
             Vous avez déjà un compte ? 
-            <p className='hover:text-blue-400 text-xs hover:underline'>Se connecter</p>
+            <p className='hover:text-blue-400 text-xs hover:underline' >Se connecter</p>
           </button>
         </form>
       </div>

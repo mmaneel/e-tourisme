@@ -2,10 +2,11 @@ from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
-from .models import * 
+from .models import *
 from .api.serializers import *
 from django.http import Http404
 from rest_framework import status
+
 
 #recherche par thèmes:
 @api_view(['POST'])
@@ -18,7 +19,9 @@ def Recherche_theme(Request):
     return Response(serializer.data)
 
 
-#recherche par catégorie 
+
+
+#recherche par catégorie
 @api_view(['POST'])
 def Recherche_categorie(Request):
     context= Request.data
@@ -26,6 +29,7 @@ def Recherche_categorie(Request):
     lieux=Lieu.objects.filter(categorie=categorie)
     serializer=LieuSerializer(lieux,many=True)
     return Response(serializer.data)
+
 
 #filtrage par nom
 @api_view(['POST'])
@@ -39,6 +43,8 @@ def Filtrage_Nom(Request):
     return Response(serializer.data)
 
 
+
+
 class LieuxView(APIView):
 #récupérer tous les lieux
    def get(self,request):
@@ -46,7 +52,8 @@ class LieuxView(APIView):
        serializer=LieuSerializer(lieux,many=True)
        return Response(serializer.data)
 
-#ajouter lieu 
+
+#ajouter lieu
    def post(self, request):
         serializer = LieuSerializer(data=request.data)
         if serializer.is_valid():
@@ -62,6 +69,7 @@ class LieuxView(APIView):
                     status=status.HTTP_200_OK
                 )
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 class eventView(APIView):
 #ajout event
@@ -80,8 +88,10 @@ class eventView(APIView):
                     status=status.HTTP_200_OK
                 )
           return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
+   
 #Supprimer lieu
 
+
 #récupérer details lieu
+
 

@@ -42,7 +42,7 @@ function App() {
         <Route path="/Dashboard" element={<Dashboard/>} />
         <Route path="/ZdestinationList" element={<ZdestinationList/>} />
         <Route path="/ListUsers" element={<ListUsers/>} />
-        <Route path="/Lieu" element={<Lieu/>} />
+        <Route path="/Lieu/:id" element={<Lieu/>} />
         <Route path="/" element={<Main/>} />
         <Route path="/search" element={<Search/>} />
        

@@ -41,7 +41,7 @@ const determineRedirectUrl = async () => {
     console.log( userRole)
 
     if (userRole === 'admin') {
-      return '/RecVisiteur';
+      return '/Dashboard';
     } else {
       return '/LieuDv';
     }
@@ -114,11 +114,7 @@ const handleSubmit = (e) => {
   return (
     <>
     <div className="font-jost flex flex-col items-center justify-center h-[100vh] max-w-[500px] w-full m-auto">
-    {Object.keys(formErrors).length===0 && isSubmit ?(
-    <div>Signed in sucessfully</div>
-    ):(
-      null//<pre>{JSON.stringify(formValues,undefined,2)}</pre>
-    )}
+    
     
     <form onSubmit={handleSubmit} className=" flex flex-col items-center justify-between w-70  rounded-2xl bg-white py-6 px-8">
     <ClearIcon  onClick={props.handle} className="text-xl ml-auto mt-2" />
@@ -137,7 +133,7 @@ const handleSubmit = (e) => {
        onChange={handlechange}
        className=" rounded-2xl py-1 px-4  w-full bg-[#F6F2E6] text-gray-600"
        />
-         {formErrors.email && (
+         {!formErrors.email && (
               <p style={{ color: 'red', fontSize: '12px' }}>{formErrors.email}</p>
             )}
       </div>
@@ -162,18 +158,21 @@ const handleSubmit = (e) => {
     }
    </a>
    <a style={{fontSize:'8px',textAlign:'right',paddingRight:'10px'}}><Link style={{ color: '#484646' }}  to ="/Forgetpasswd">Mot de pass oublié</Link></a>
-   {formErrors.password && (
+   {!formErrors.password && (
               <p style={{ color: 'red', fontSize: '12px' }}>{formErrors.password}</p>
             )}
     
 </div>
+{/*Object.keys(formErrors).length===0 && isSubmit ?(
+    <div>Signed in sucessfully</div>
+    ):(
+      null//<pre>{JSON.stringify(formValues,undefined,2)}</pre>
+    )*/}
     
-    <button className="text-[#162641] px-6 py-1 bg-[#C1DCAB] border-none w-auto h-auto text-lg rounded-2xl font-semibold mt-6" type='submit'>
-      <Link className='link-style' to ="/LieuDV ">
+    <button onClick={props.handleConnectClick} className="text-[#162641] px-6 py-1 bg-[#C1DCAB] border-none w-auto h-auto text-lg rounded-2xl font-semibold mt-6" type='submit'>
         Connecter
-      </Link>
     </button>
-    <button  className="border-none bg-transparent text-sm pt-4 text-[#162641] " onClick={props.handleSInscrire}>
+    <button  className="border-none bg-transparent text-sm pt-4 text-[#162641] " onClick={props.handleSinscr}>
       Vous n'avez pas un compte ? 
       <p className='hover:text-blue-400 text-xs hover:underline'>S'inscrire</p></button>
   </form>

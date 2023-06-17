@@ -15,14 +15,16 @@ import Map, {
 import mapboxgl from 'mapbox-gl';
 import NavBar from '../navbar'
 import { useEffect } from 'react';
-import monuments from '../../monuments.json';
 import { useMemo } from 'react';
+import axios from 'axios';
 
 function Search() {
   const [theme, setTheme]=useState(null);
   const [category, setCategory]=useState(null);
   const [popupInfo, setPopupInfo] = useState(null);
+  const [monuments, setMonuments]=useState([]);
   const [shownMonuments, setShownMonuments]=useState(monuments);
+  
 
   useEffect(() => {
     // Filter the monuments based on theme and category
@@ -44,12 +46,27 @@ function Search() {
   const handleCategoryChange =(event)=>{
     setCategory(event.target.value)
 }
-  
-const pins = useMemo(
-  () =>
-    shownMonuments.map((monument, index) => (
-      <Marker
-        key={`marker-${index}`}
+const [Lieux, setLieux] = useState([])
+
+const fetchannonces = async () => {
+  const events = await axios.get('http://127.0.0.1:8000/api/lieux/');
+     
+      console.log(events.data)
+      setMonuments(events.data)
+     
+
+
+  }
+
+  useEffect(() => {
+      fetchannonces();
+  }, [])
+
+  const pins = useMemo(
+    () =>
+      monuments.map((monument) => (
+        <Marker
+          key={monument.id}
         longitude={monument.longitude}
         latitude={monument.latitude}
         anchor="bottom"

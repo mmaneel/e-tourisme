@@ -34,7 +34,8 @@ function App() {
         <Route path="/RecVisiteur" element={<RecVisiteur/>} />
         <Route path="/PageActive" element={<PageActive/>} />
         <Route path="/LieuDv" element={<LieuDv addToFavorites={addToFavorites}/>}/>
-        <Route path="/Lieu" element={<Lieu/>} />
+        <Route path="/Lieu/:id" element={<Lieu />} />
+
       
      
       </Routes>

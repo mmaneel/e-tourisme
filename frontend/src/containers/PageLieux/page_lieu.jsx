@@ -1,5 +1,6 @@
 import './page_lieu.css';
-import React, { useState } from 'react';
+import React, { useState,useEffect} from 'react';
+import { useParams } from 'react-router-dom';
 import Actualité from './actualité';
 import Comment from './comment';
 import KeyboardReturnOutlinedIcon from '@mui/icons-material/KeyboardReturnOutlined';
@@ -9,6 +10,7 @@ import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutl
 import StarIcon from '@mui/icons-material/Star';
 import CommuteOutlinedIcon from '@mui/icons-material/CommuteOutlined';
 import NewspaperOutlinedIcon from '@mui/icons-material/NewspaperOutlined';
+import axios from 'axios';
 
 function Lieu() {
   const [hide, setHide] = useState(false);
@@ -37,6 +39,44 @@ function Lieu() {
   const handleCommentChange = (event) => {
     setCommentText(event.target.value);
   };
+  const {id} = useParams();
+  console.log(typeof id);
+
+  const [lieu, setlieu] = useState([])
+  const [horaire, sethoraire] = useState([])    //map this   
+  const [event, setevent] = useState([])     //and this
+
+      useEffect(() => {
+         
+          
+          getSingleAnnonce();
+      },[])
+ 
+
+   const getSingleAnnonce = async () => {
+      console.log(`http://localhost:8000/api/Detail/${id}`)
+        var res = await axios.get(`http://localhost:8000/api/Detail/${id}`)
+        console.log(res);
+        setlieu(res.data[0]);
+        console.log(lieu.Nom);
+        console.log(lieu);   
+       
+         res = await axios.get(`http://localhost:8000/api/lieu/horaire/${id}`)
+        console.log(res);
+        sethoraire(res.data);
+        console.log(lieu);   
+       
+         res = await axios.get(`http://localhost:8000/api/lieu/events/${id}`)
+        console.log(res);
+        setevent(res.data);
+        console.log(lieu);   
+    
+}
+      
+      
+     
+        
+const path="http://127.0.0.1:8000"
 
   return (
     <>
@@ -51,15 +91,15 @@ function Lieu() {
         {/*----------------------------contenu de lieu-----------------------------*/}
 
        
-          {tab.map((e) => (
-            <div className='content'  key={e.id}>
+          {lieu && lieu.map((e) => (
+            <div className='content'  key={lieu.id}>
               <div className='content_left'>
                 <div className='lieu_image'></div>
                 <div className='name' style={{ color: '#162641' }}>
-                  <p>{e.nom}, {e.wilaya}</p>
+                  <p>{lieu.Nom}, {lieu.laya}</p>
                 </div>
                 <div className='name'>
-                  <p style={{ color: '#88AFDE' }}>{e.theme}, {e.categorie}</p>
+                  <p style={{ color: '#88AFDE' }}>{lieu.theme} , {lieu.categorie}</p>
                 </div>
               </div>
 
@@ -68,10 +108,10 @@ function Lieu() {
               </div>
 
               <div className='content_right'>
-                <h4>{e.nom}</h4>
+                <h4>{lieu.nom}</h4>
                 <div>
                   <p>
-                    {e.description}
+                  {lieu.description}
                   </p>
                 </div>
                 <div
@@ -106,7 +146,7 @@ function Lieu() {
                             </li>
                             
                             ))}
-                        </ul>
+                        </ul>         
                         
                       </div>
                       <div className='unmoyen'>

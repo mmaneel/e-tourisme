@@ -11,6 +11,7 @@ from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from rest_framework.permissions import IsAuthenticated
 from users.models import UserData as User
+from django.core.exceptions import ObjectDoesNotExist
 
 #afficher details lieu
 def lieu_detail(request, pk):
@@ -94,31 +95,33 @@ class LieuxView(APIView):
 
 #ajouter lieu 
    def post(self, request):
-        serializer = LieuSerializer(data=request.data)
-        if serializer.is_valid():
-            lieu, created = Lieu.objects.get_or_create(
-                Nom=serializer.validated_data['Nom'],
-                defaults=serializer.validated_data
-            )
-            if created:
-                return Response(serializer.data, status=status.HTTP_201_CREATED)
-            else:
-                return Response(
-                    {"message": "Lieu already exists."},
-                    status=status.HTTP_200_OK
-                )
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    serializer = AddLieuSerializer(data=request.data)
+
+    if serializer.is_valid():
+        lieu = serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class eventView(APIView):
+#recuperer tout les evenements
+    def get(self,request):
+       event=Evenement.objects.all()
+       serializer=EventSerializer(event,many=True)
+       return Response(serializer.data)
 #ajout event
-    def post(request):
+    def post(self,request):
           serializer=EventSerializer(data=request.data)
           if serializer.is_valid():
              event, created = Evenement.objects.get_or_create(
-                Nom=serializer.validated_data['titre'],
+                titre=serializer.validated_data['titre'],
                 defaults=serializer.validated_data
             )
              if created:
+                lieuid=serializer.data.get('lieuid')
+                wilaya=Lieu.objects.get(id=lieuid).wilaya
+                print(wilaya)
+                ####
                 return Response(serializer.data, status=status.HTTP_201_CREATED)
              else:
                 return Response(
@@ -126,8 +129,88 @@ class eventView(APIView):
                     status=status.HTTP_200_OK
                 )
           return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class EVentdu(APIView):
+     #delete an event
+     def delete(self,request,pk):
+         event=Evenement.objects.get(id=pk)
+         event=event.delete()
+         serializer=EventSerializer(event)
+         return Response(status=status.HTTP_200_OK)
+     #afficher details event
+     def get(self,request,pk):
+        try: 
+            event=Evenement.objects.get(id=pk)
+            serializer=EventSerializer(event)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except ObjectDoesNotExist:
+            return Response(    {"message": "Event doesn't exists."},status=status.HTTP_400_BAD_REQUEST)
+        
+@api_view(['PUT'])
+def UpdateLieu(request, pk):
+    try:
+        lieu = Lieu.objects.get(pk=pk)
+    except Lieu.DoesNotExist:
+        return Response({"message": "Lieu not found."}, status=status.HTTP_404_NOT_FOUND)
+
+    serializer = LieuSerializer(lieu, data=request.data)
+    if serializer.is_valid():
+        lieu = serializer.save()
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['DELETE'])
+def DeleteLieu(request, pk):
+    try:
+        lieu = Lieu.objects.get(pk=pk)
+        lieu.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+    except Lieu.DoesNotExist:
+        return Response({"message": "Lieu doesn't exist."}, status=status.HTTP_404_NOT_FOUND)
+
+
+@api_view(['GET'])
+def DetailsLieu(request, pk):
+   data=Lieu.objects.filter(id=pk)
+   serilizer = LieuSerializer(data, many=True)
+   return Response(serilizer.data)
+
+
+@api_view(['GET'])
+def TransportLieu(request, pk):
+   data=Transport.objects.filter(lieu=pk)
+   serilizer = TransportSerializer(data, many=True)
+   return Response(serilizer.data)
+
+
+@api_view(['GET'])
+def HoraireLieu(request, pk):
+   data=HoraireOuv.objects.filter(lieu=pk)
+   serilizer = HoraireOuvSerializer(data, many=True)
+   return Response(serilizer.data)
+
+
+@api_view(['GET'])
+def EventLieu(request, pk):
+   data=Evenement.objects.filter(lieuid=pk)
+   serilizer = EventSerializer(data, many=True)
+   return Response(serilizer.data)
+
+
+
+
+
+#ajouter wilaya au favoris
+@api_view(['POST'])     
+def AjoutwilayaFav(request):
+    
     
 #Supprimer lieu
 
 #récupérer details lieu
+
+#ajouter un Lieux avec ses informations
+ '''@api_view(['POST'])
+def Ajout_Lieu(request):
+'''
 

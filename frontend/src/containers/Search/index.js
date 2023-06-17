@@ -22,6 +22,22 @@ function Search() {
   const [theme, setTheme]=useState(null);
   const [category, setCategory]=useState(null);
   const [popupInfo, setPopupInfo] = useState(null);
+  const [shownMonuments, setShownMonuments]=useState(monuments);
+
+  useEffect(() => {
+    // Filter the monuments based on theme and category
+    const filteredMonuments = monuments.filter((monument) => {
+      if (theme && monument.theme !== theme) {
+        return false;
+      }
+      if (category && monument.category !== category) {
+        return false;
+      }
+      return true;
+    });
+    setShownMonuments(filteredMonuments);
+  }, [theme, category]);
+
   const handleThemeChange =(event)=>{
     setTheme(event.target.value)
   }
@@ -76,7 +92,7 @@ const pins = useMemo(
                           zoom: 11.5,
                         }}
                    >
-                      <div className='absolute top-6 z-20 px-4 py-2 rounded-r-xl bg-white flex flex-row justify-between items-center w-[60%] h-16 gap-3'>
+                      <div className='absolute top-6 z-20 px-4 py-2 rounded-r-xl bg-white flex flex-row justify-between items-center w-2/3 h-16 gap-3'>
                          <div className='w-2/4 h-full '><Geocoder/></div>
                          <div className='flex flex-row justify-between items-center w-full h-full gap-3'>
                             <div className='border-l border-bgshadow h-full'></div>
@@ -107,7 +123,9 @@ const pins = useMemo(
                             </div>
                             <div className='border-l border-bgshadow h-full'></div>
                             <div className='h-full w-full flex flex-col items-center justify-center '>
-                              <div className='h-2/3 bg-orange rounded-2xl flex flex-row items-center justify-center px-6 text-base font-medium'>Rechercher</div>
+                              <div className='h-2/3 w-full flex flex-row items-center justify-center'>
+                                <button className=' bg-orange rounded-2xl px-6 text-base font-medium'>Rechercher</button>
+                              </div>
                             </div>
                         </div>
                        </div>

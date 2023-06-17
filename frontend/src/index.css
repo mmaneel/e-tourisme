@@ -28,7 +28,7 @@ code {
 .mapboxgl-ctrl-top-right{
   right: 80% !important;
   top: 30px !important;
-  z-index: 90 !important;
+  z-index: 15 !important;
   
 }
 .mapboxgl-popup-close-button{

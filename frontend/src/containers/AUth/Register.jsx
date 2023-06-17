@@ -113,56 +113,69 @@ const handleSubmit = (e) => {
 
   return (
     <>
-    <div className='container-reg'>
-    {/*Object.keys(formErrors).length===0 && isSubmit ?(
+    <div className="font-jost flex flex-col items-center justify-center h-[100vh] max-w-[500px] w-full m-auto">
+    {Object.keys(formErrors).length===0 && isSubmit ?(
     <div>Signed in sucessfully</div>
     ):(
       null//<pre>{JSON.stringify(formValues,undefined,2)}</pre>
-    )*/}
+    )}
     
-    <form onSubmit={handleSubmit}>
-    <ClearIcon   sx={{ fontSize: "20px", marginLeft: "90%",marginTop: "2%"}}/>
-    <img src='/LOGO.png' alt="logo" />
-    <h2 >Bienvenue  de nouveau </h2>
-    <span>Faites entrer votre information pour commencer ! </span>
-    
-      <div className='input-info'>
-      <label >Email</label>
+    <form onSubmit={handleSubmit} className=" flex flex-col items-center justify-between w-70  rounded-2xl bg-white py-6 px-8">
+    <ClearIcon  onClick={props.handle} className="text-xl ml-auto mt-2" />
+    <img src='/LOGO.png' alt="logo" className="w-14 h-14"/>
+    <h2 className="text-2xl font-bold text-[#162641] mt-4">Bienvenue  de nouveau </h2>
+    <span className="text-xs text-[#162641] mt-[2px] mb-8">
+      Faites entrer votre information pour commencer ! 
+    </span>
+    <div className="w-full relative">
+      <label className="text-[#50504F]">Email</label>
     <input 
        name="email"
        value={formValues.email}
        type="text"
        placeholder='example@gmail.com'
-       onChange={handlechange}/>
-       <p style={{ color: 'red' , fontSize:'12px'}}>{formErrors.email}</p>
+       onChange={handlechange}
+       className=" rounded-2xl py-1 px-4  w-full bg-[#F6F2E6] text-gray-600"
+       />
+         {formErrors.email && (
+              <p style={{ color: 'red', fontSize: '12px' }}>{formErrors.email}</p>
+            )}
       </div>
       
-<div className='input-info'>
-<label >Password</label>
+<div className="relative mt-2">
+<label className="text-[#50504F]">Mot de passe</label>
     <input 
      name ="password"
     value={formValues.password} 
     type={passwordType} 
     placeholder='******'
-    onChange={handlechange}/>
-    <a className='btn-visibility' onClick={togglePassword}>
+    onChange={handlechange}
+    className=" rounded-2xl py-1 px-4 w-full bg-[#F6F2E6] text-gray-600"
+    />
+    <a className="absolute bg-transparent left-[90%] top-[42%]" onClick={togglePassword}>
     {passwordType === "password" ? (
-    <VisibilityIcon 
-         sx={{ fontSize: "18px", marginTop: "5px", color: "#000" ,}}/>
-    ) : (
-      <VisibilityOffIcon
-        sx={{ fontSize: "18px", marginTop: "5px", color: "#000" ,}}
-      />
-    )}
-      </a>
-      <a style={{fontSize:'8px',textAlign:'right',paddingRight:'10px'}}><Link style={{ color: '#484646' }}  to ="/Forgetpasswd">Mot de pass oublié</Link></a>
-    <p style={{ color: 'red' , fontSize:'12px'}}>{formErrors.password}</p>
+                                      <VisibilityIcon className="text-lg mt-1 text-black"/>
+                                   ) 
+                                 : (
+                                        <VisibilityOffIcon className="text-lg mt-1 text-black"/>
+                                   )
+    }
+   </a>
+   <a style={{fontSize:'8px',textAlign:'right',paddingRight:'10px'}}><Link style={{ color: '#484646' }}  to ="/Forgetpasswd">Mot de pass oublié</Link></a>
+   {formErrors.password && (
+              <p style={{ color: 'red', fontSize: '12px' }}>{formErrors.password}</p>
+            )}
     
 </div>
-{error && <p>{error}</p>} {/* Display the error message */}
-    <button className='btn-inscrire' type='submit'>Connecter
+    
+    <button className="text-[#162641] px-6 py-1 bg-[#C1DCAB] border-none w-auto h-auto text-lg rounded-2xl font-semibold mt-6" type='submit'>
+      <Link className='link-style' to ="/LieuDV ">
+        Connecter
+      </Link>
     </button>
-    <button className='btn-link'><Link  className='link-style style1' to ="/Login">Vous n' avez pas un compte ? S'inscrire</Link></button>
+    <button  className="border-none bg-transparent text-sm pt-4 text-[#162641] " onClick={props.handleSInscrire}>
+      Vous n'avez pas un compte ? 
+      <p className='hover:text-blue-400 text-xs hover:underline'>S'inscrire</p></button>
   </form>
   
   </div>

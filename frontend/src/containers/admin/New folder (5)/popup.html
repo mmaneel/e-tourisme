@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+  <button id="openPopupButton">Open Pop-up</button>
+
+  <div id="popup" class="popup">
+    <div class="popup-header">
+      <button class="exit-button">X</button>
+    </div>
+    <div class="title-container">
+      <h2 class="popuptitle">Ajouter un moyen de transport</h2>
+    </div>
+
+    <form>
+      <label for="tran" class="photo-label">
+        <div class="input-container">
+          <input type="text" id="trans-text" name="trans-text" placeholder="  Le transport">
+        </div>
+        <ul class="dropdown-list">
+          <li>Arret de bus</li>
+          <li>Gare de train</li>
+          <li>Arret métro</li>
+        </ul>
+      </label>
+
+      <label for="dur" class="photo-label">
+        <div class="input-container">
+          <input type="text" id="dur-text" name="dur-text" placeholder="  Temps d'arrivée">
+        </div>
+      </label>
+
+      <div class="button-container">
+        <button class="cancel"><span class="button-icon">&#x2716;</span> Annuler</button>
+        <button class="save">
+          <span class="button-icon">&#x2714;</span>
+          Enregistrer
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

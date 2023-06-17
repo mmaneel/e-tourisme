@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+<body>
+  <button id="openPopupButton">Open Pop-up</button>
+
+  <div id="popup" class="popup">
+    <div class="popup-header">
+      <button class="exit-button">X</button> </div> 
+      <div class="title-container">
+       <h2 class="popuptitle">Ajouter une nouvelle actualité</h2>
+        
+    </div>
+    
+    <form>
+      <label for="photo" class="photo-label">
+        <div class="input-container">
+          <div class="icon-container">
+            <label for="photo-upload">
+             <img src="photoicon.png" alt="PhotoIcon">
+            </label>
+            <input type="file" id="photo-upload" name="photo-upload" accept="image/*" style="display: none;" >
+          </div>
+          <input type="text" id="photo-text" name="photo-text" placeholder="Photo" readonly>
+        </div>
+      </label>
+       
+      <label for="Act" class="photo-label">
+      <div class="input-container">
+        <input type="text" id="Act-text" name="Act-text" placeholder=" Titre d'actualité ">
+      </div>
+      </label>
+
+      <label for="descp" class="photo-label">
+        <div class="input-container1">
+          <input type="text" id="photo-text" name="photo-text" placeholder="Description">
+        </div>
+        </label>
+      <div class="button-container"> 
+        <button class="cancel"> <span class="button-icon">&#x2716;</span> Annuler</button>
+        <button class="save">
+          <span class="button-icon">&#x2714;</span>
+        Enregistrer</button>
+      </div>
+      
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

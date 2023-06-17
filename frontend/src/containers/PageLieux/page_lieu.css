@@ -5,6 +5,7 @@
     font-style: normal;
     color: #162641;
     background-color: #FEFDF7;
+   
 
 }
 
@@ -109,7 +110,7 @@ text-align: start;
     width: 100%;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: -1.5em;
+   
 
 }
 .list .unmoyen .start_elements {
@@ -118,6 +119,7 @@ text-align: start;
     align-items: center;
     justify-content: space-around;
     padding: 0.5em;
+  
 }
 
 
@@ -188,8 +190,6 @@ text-align: start;
    
 }
 .Add_Comment span{
-    
-    
     font-family: 'Jost';
     font-style: normal;
     font-weight: 600;
@@ -217,6 +217,7 @@ font-size: 16px;
 font-weight: 600;
 font-size: 20px;
 color: #162641;
+
 }
 
 .Add_Comment button{

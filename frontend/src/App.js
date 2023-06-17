@@ -33,7 +33,7 @@ function App() {
      <div>
       <Routes>
       
-        <Route  path="/" element={<Login/>} />
+        <Route  path="/Login" element={<Login/>} />
         <Route  path="/Register" element={<Register/>} />
         <Route  path="/Favoris" element={<Fav favorites={favorites} removeFromFavorites={removeFromFavorites} />} />
         <Route path="/RecVisiteur" element={<RecVisiteur/>} />
@@ -43,7 +43,7 @@ function App() {
         <Route path="/ZdestinationList" element={<ZdestinationList/>} />
         <Route path="/ListUsers" element={<ListUsers/>} />
         <Route path="/Lieu" element={<Lieu/>} />
-        <Route path="/main" element={<Main/>} />
+        <Route path="/" element={<Main/>} />
         <Route path="/search" element={<Search/>} />
        
       

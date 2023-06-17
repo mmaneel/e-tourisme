@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import './Login.css'
+import './Register.css'
 import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
@@ -113,7 +113,7 @@ const handleSubmit = (e) => {
 
   return (
     <>
-    <div className='container-log'>
+    <div className='container-reg'>
     {/*Object.keys(formErrors).length===0 && isSubmit ?(
     <div>Signed in sucessfully</div>
     ):(

@@ -2,6 +2,7 @@ import React ,{useState,useEffect} from 'react'
 import StarIcon from '@mui/icons-material/Star';
 import"./Favoris.css"
 import { Link } from 'react-router-dom';
+import NavBar from '../navbar';
 function Favoris({favoris}) {
   const [lieux,setLieux] =useState( [
     { id: 1, nom: 'Lieu 1', favori: false, region: 'Lieu', color: '#C1DCAB' },
@@ -46,6 +47,7 @@ function Favoris({favoris}) {
   return (
     <>
     <div className='container-fav'>
+    <NavBar/>
     <img className='ligne-pic' src='./ligne.png' alt="photo"/>
     
         <h1 

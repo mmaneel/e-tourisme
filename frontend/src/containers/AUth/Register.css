@@ -1,0 +1,132 @@
+.container-reg {
+    display: flex ;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    max-width: 500px;
+    width: 100%;
+    margin: auto;
+  }
+  .container-reg > form {
+    display: flex ;
+    flex-direction: column;
+    align-items: center;
+    width: 79%;
+    border: 1px solid #dfdfdf;
+    padding: 20px;
+    border-radius: 20px;
+    background: #FEFDF7;
+    height: 550px;
+    
+  }
+  .container-reg .ctr-img{
+    width: 20px;
+    height: 20px;
+    padding: 5% 40% 0% 40%;
+    border: #162641 solid  1px;
+    
+  }
+  .container-reg .h-ctr{
+    font-size: 25px;
+    color: #162641;
+    
+  }
+  .container-reg .sp-ctr{
+    font-size: 10px;
+    color: #162641;
+    margin-bottom: 10px;
+    
+
+  }
+  .container-reg .input-info{
+
+    display: flex ;
+    flex-direction: column;
+    text-align: left;
+    width: 90%;
+    position: relative;
+    margin-top: 5px;
+    
+   
+    
+  }
+  .container-reg .input-info label{
+    margin-left: 8px;
+    color: #50504F;
+  }
+  
+  .container-reg .input-info input{
+    margin-top: 4px;
+  height: 40px;
+    border: 1px solid #dfdfdf;
+    border-radius: 7px;
+    padding: 10px;
+    background-color: #F6F2E6;
+    color: #635D5D;
+    
+  }
+  .container-reg .btn-inscrire{
+    background-color: #C1DCAB;
+    border: none;
+    width: 130px;
+    height: 45px;
+    font-size: 16px;
+    border-radius: 12px;
+    font-weight:500;
+    margin-top: 18PX;
+  }
+  .container-reg .btn-link{
+    border: none;
+    background-color:transparent;
+    padding-top: 20px;
+    font-size: 13px;
+
+  }
+  .container-reg .btn-visibility{
+ position: absolute;
+  background-color: transparent;
+  left: 90%;
+  top: 30%;
+  border: none;
+}
+.container-reg .link-style{
+  text-decoration: none;
+  color: #162641;
+ 
+}
+.container-reg .style1{
+  color: #162641;
+}
+
+@media screen and (max-width: 768px) {
+    .container-reg > form {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+    .container-reg > form {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .container-reg h2 {
+    font-size: 20px;
+  }
+
+  .container-reg span {
+    font-size: 10px;
+  }
+
+  .container-reg .btn-inscrire {
+    width: 50%;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .container-reg .btn-link {
+    padding-top: 20px;
+    font-size: 8px;
+  }
+}

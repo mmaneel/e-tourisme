@@ -1,6 +1,6 @@
-import React, { useState ,useEffect} from 'react';
+import React, { useState ,useEffect} from 'react'; 
+import axios from 'axios';
 import './LieuDv.css';
-import StarIcon from '@mui/icons-material/Star';
 import { Link } from 'react-router-dom';
 
 function LieuDv({ addToFavorites }) {
@@ -27,18 +27,32 @@ function LieuDv({ addToFavorites }) {
 
     setLieux(updatedLieux);
   };
- 
+  const [Events, setEvents] = useState([])
+
+  const fetchannonces = async () => {
+    const events = await axios.get('http://localhost:8000/api/Event');
+       
+        console.log(events.data)
+        setEvents(events.data)
+
+
+
+    }
+
+    useEffect(() => {
+        fetchannonces();
+    }, [])
 
 
   return (
     <>
       <div className='container-DV'>
-        {lieux.map((e) => (
+        {Events.map((e) => (
           <div className='lieu-form-DV' key={e.id}>
             <img src='./mosq.jpg' alt='photo' />
             <div className='lieu-form-R-DV'>
               <div className='lieu-name-DV'>
-                <h3>{e.nom}</h3>
+                <h3>{e.titre}</h3>
                 <button className='icon-star' onClick={() =>  toggleFavorite (e.id)}>
                   {e.favori? (
                     <img src='./savedFull.svg' alt='saved' />
@@ -47,20 +61,16 @@ function LieuDv({ addToFavorites }) {
                   )}
                 </button>
               </div>
-              <span style={{ color: e.color, textDecoration: 'underline' }}>{e.region} :</span>
+              <span style={{ color: e.color, textDecoration: 'underline' }}>{e.date} :</span>
+              <span style={{ color: e.color, textDecoration: 'underline' }}>{e.wilaya} :</span>
               <div className='dscp-actl'>
                 <p>
                   <span style={{ color: e.color, paddingTop: '-5px' }}>Details de l’événement: </span>
-                  Lorem ipsum dolor sit amet. A sapiente neque est voluptas omnis aut aspernatur saepe ut
-                  consectetur sint et totam atque qui voluptas maiores qui impedit vero? Ad alias animi eum sunt
-                  Ad alias animi eum suntAd alias animi eum sunt Ad alias animi eum sunt Ad alias animi eum sunt
-                   Ad alias animi eum sun Ad alias animi eum suntAd Ad alias frgg
+                 {e.description}
                 </p>
               </div>
               <button className='btn-show-detl'>
-                <Link style={{ textDecoration: 'none', color: '#c3c3c3' }} to='/RecVisiteur'>
-                  Plus de détails...
-                </Link>
+                
               </button>
             </div>
           </div>

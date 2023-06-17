@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useWindowSize } from '../../hooks/WindowSize';
 import { useScrollPosition } from '../../hooks/ScrollPosition';
 import logo from './Logo 2.svg'
+import { Link } from 'react-router-dom';
 
 
 const NavBar = () => {
@@ -41,7 +42,7 @@ const NavBar = () => {
 
     return (
         
-        <div className= 'w-full bg-blueGray flex flex-row justify-between text-black text-lg px-20 py-6'>
+        <div className= 'w-full bg-white flex flex-row justify-between text-black text-lg px-20 py-6'>
         <img className='w-8' src={logo}></img>
        
         <input
@@ -60,13 +61,13 @@ const NavBar = () => {
 			</label>
         
             <div className='flex flex-row justify-between gap-8 font-medium'>
-                <a href='/main'><button className='hover:text-orange hover:underline mt-17'>Accueil </button></a>
+                <a href='/'><button className='hover:text-orange hover:underline mt-17'>Accueil </button></a>
                 <a href='/search'><button className='hover:text-orange hover:underline mt-17'>Recherche</button></a>
                 <a href='#projects'><button className='hover:text-orange hover:underline mt-17'>Actualités </button></a>
             </div>
             <div className='flex flex-row justify-between gap-8 font-medium'>
-                <a href='#services'><button className='hover:bg-[#CBDEEC] hover:rounded-2xl px-2   mt-17'>Se connecter </button></a>
-                <a href='#projects'><button className=' bg-[#CBDEEC] rounded-2xl px-2  mt-17'>S'inscrire </button></a>
+                <a href='#services'><button className='hover:bg-[#CBDEEC] hover:rounded-2xl px-2   mt-17'><Link to='/Register' >Se connecter</Link> </button></a>
+                <a href='#projects'><button className=' bg-[#CBDEEC] rounded-2xl px-2  mt-17'><Link to='/Login' >S'inscrire</Link>  </button></a>
             </div>
      
        

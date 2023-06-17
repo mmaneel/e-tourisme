@@ -4,6 +4,7 @@ import RecVisiteur from './RecVisiteur'
 import "./PageActive.css"
 import { Link } from 'react-router-dom';
 import Favoris from '../Favoris/Favoris';
+import NavBar from '../navbar';
 
 function PageActive() {
   const [favoris, setFavoris] = useState([]);
@@ -19,7 +20,9 @@ function PageActive() {
   return (
     <>
      <div className='rec-list'>
-  <button 
+     <NavBar/>
+        <div className='rec-listt'>
+        <button 
   className={toggleState === 1 ? "tabs active-tabs" : "tabs"} 
   onClick={() => toggleTab(1)} >
           Actualités
@@ -30,6 +33,9 @@ function PageActive() {
         >
           Recommandés
         </button>
+
+        </div>
+  
   </div>
   {toggleState === 1 ? (
         <LieuDv addToFavorites={addToFavorites} />

@@ -5,7 +5,7 @@ import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import ClearIcon from '@mui/icons-material/Clear';
 import axios from 'axios';
-
+import CheckCircleOutlinedIcon from '@mui/icons-material/CheckCircleOutlined';
 
 function Login(props) {
   const initialeValues={name:"",email:"",password:""};
@@ -75,17 +75,18 @@ function Login(props) {
   return (
     <>
     <div className='container-log'>
-    {Object.keys(formErrors).length===0 && isSubmit ?(
-    <div>Signed in sucessfully</div>
-    ):(
-      null//<pre>{JSON.stringify(formValues,undefined,2)}</pre>
-    )}
+   
     
     <form onSubmit={handleSubmit}>
     <ClearIcon   sx={{ fontSize: "20px", marginLeft: "90%",marginTop: "2%"}}/>
     <img className ='ctr-img' src='/LOGO.png' alt="logo" />
     <h2 className='h-ctr' >Bienvenue  à  ZDestination </h2>
     <span className='sp-ctr'>Créez un compte, une experience exptionnelle vous attend ! </span>
+    {Object.keys(formErrors).length===0 && isSubmit ?(
+    <div style={{ color:'green'}}><CheckCircleOutlinedIcon sx={{color:'green'}}/>Signed in sucessfully</div>
+    ):(
+      null//<pre>{JSON.stringify(formValues,undefined,2)}</pre>
+    )}
     <div className='input-info'>
       <label >Name</label>
     <input 

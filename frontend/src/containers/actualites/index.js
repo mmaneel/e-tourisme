@@ -4,6 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay, A11y } from 'swiper';
 
 import 'swiper/swiper.css';
+import { Link } from 'react-router-dom';
 // import 'swiper/css/navigation';
 
 
@@ -49,7 +50,7 @@ const Actualites = () => {
                     <p className='font-bold text-3xl leading-10'>Actualités</p>
                     <div className='flex flex-row justify-between items-center gap-2'>
                         <img src='/plusIcon.svg' height='30px' width='30px'></img>
-                        <p className='font-normal text-xl'>Plus</p>
+                        <p className='font-normal text-xl'><Link to='/Login'>Plus</Link></p>
                     </div>
                  </div>
             </div>
@@ -143,7 +144,7 @@ const Actualites = () => {
                     <p className='font-bold text-3xl leading-10'>Lieux populaires</p>
                     <div className='flex flex-row justify-between items-center gap-2'>
                         <img src='/plusIcon.svg' height='30px' width='30px'></img>
-                        <p className='font-normal text-xl'>Plus</p>
+                        <p className='font-normal text-xl'><Link to='/Login'>Plus</Link></p>
                     </div>
                  </div>
             <div className='flex justify-center items-center mb-10'>

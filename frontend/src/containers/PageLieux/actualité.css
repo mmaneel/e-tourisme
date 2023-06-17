@@ -1,0 +1,33 @@
+.actualité{
+    display: flex;
+    box-shadow: 0px 2px 7px rgba(84, 47, 21, 0.21);
+    border-radius: 30px;
+    margin: 2em;
+    background-color: white;
+}
+.actualité .NewEvent{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+    padding: 5px 30px;
+}
+
+.actualité .NewEvent h3{
+    font-family: 'Jost';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+margin:8px 0px ;
+color: #C1DCAB;
+}
+.actualité .dv-sp{
+    
+    margin-bottom: 15px;
+    width: 600px;
+}
+.actualité .dv-sp span {
+    
+    margin-bottom: 15px;
+    width: 600px;
+}

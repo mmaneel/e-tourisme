@@ -1,0 +1,232 @@
+
+.lieu{
+   
+    font-family: 'Jost';
+    font-style: normal;
+    color: #162641;
+    background-color: #FEFDF7;
+   
+
+}
+
+.lieu .return_button{
+    display: flex;
+    flex-direction: row-reverse;
+  
+}
+.lieu .return_button button {
+    display: flex;
+    background: #F8B654;
+    border-radius: 30px;
+    border: none;
+    padding: 0.5em;
+    font-weight: 400;
+    font-size: 16px;
+    color:#162641;;
+    margin: 5em;
+    width: 100px;
+    
+
+}
+.return_icon{
+    width: 1em;
+    margin-right: 0.5em;
+}
+
+.lieu .content{
+    display: flex;
+    flex-direction: row;
+    margin: 3em;
+    justify-content: center;
+    
+}
+.lieu .content .content_left{
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+    align-items: flex-start;
+    
+    margin-left: 0%;
+   
+}
+
+
+.lieu .content .content_left .lieu_image{
+    background: #D9D9D9;
+    border-radius: 19px;
+    width: 300px;
+    height: 380px;
+}
+.lieu .content .content_middle{
+width: 5px;
+background: #162641;   
+height: 23rem; 
+margin-left: 30px;  
+}
+
+.lieu .content .content_right{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 3%;
+    width: 800px;
+   
+    padding-left: 30px;
+
+}
+.lieu .content .content_right h4{
+font-family: 'Jost';
+font-style: normal;
+font-weight: 600;
+font-size: 30px;
+color: #162641;
+margin-bottom: 0.5em;
+
+}
+.lieu .content .content_right p{
+font-family: 'Jost';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+color: #162641;
+text-indent: 2em;
+text-align: start;
+
+
+
+}
+.lieu .content .content_right .moyens_de_transports{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 1em;
+    
+}
+
+
+
+.list .unmoyen{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+   
+
+}
+.list .unmoyen .start_elements {
+    display: flex;
+    align-items: flex-start;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0.5em;
+  
+}
+
+
+.horaires{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 1em;
+    margin-top: 1.5em;
+
+}
+
+.horaires .start_elements{
+    display: flex;
+    align-items: flex-start;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.horaires img{
+    width: 1em;
+    margin-right: 0.5em;
+}
+
+.list_item{
+    display: flex;
+    margin: 1em;
+}
+
+
+
+.Actualités {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 1em;
+    margin-top: 1.5em;
+}
+.Actualités img{
+    width: 1em;
+    margin-right: 0.5em;
+}
+
+
+.Commentaires {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 1em;
+    margin-top: 1.5em;
+
+}
+
+.Commentaires img{
+    width: 1em;
+    margin-right: 0.5em;
+}
+
+.Add_Comment{
+    margin: 1em 2em 2em 0em;
+    display: flex;
+    flex-direction: column;
+   background-color: white;
+    border-radius: 10px;
+    box-shadow:rgba(0, 0, 0, 0.1) 0px -1px 8px;
+    padding-left: 30px;
+    padding-top: 10px;
+   
+}
+.Add_Comment span{
+    font-family: 'Jost';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    
+}
+
+
+ .comment_input {
+width: 600px;
+margin-top: 1em;
+border: none;
+outline: none;
+padding: 0.5em;
+height: 150px;
+background: #FFFFFF;
+box-shadow:inset rgba(0, 0, 0, 0.1) 0px -1px 8px;
+border-radius: 20px;
+font-size: 16px;
+
+}
+
+.Commentaires .start_elements span{
+    font-style: normal;
+font-weight: 600;
+font-size: 20px;
+color: #162641;
+
+}
+
+.Add_Comment button{
+    background: rgba(193, 220, 171, 0.79);
+border-radius: 30px;
+border: none;
+padding: 0.5em;
+width: 6em;
+margin-top: 1em;
+font-weight: 400;
+font-size: 14px;
+}

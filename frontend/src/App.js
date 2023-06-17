@@ -10,6 +10,7 @@ import Forgetpasswd from './containers/Passwd/Forgetpasswd';
 import Favoris from './containers/Favoris/Favoris';
 import PageActive from './containers/Recommended-Visiteur/PageActive';
 import Fav from './containers/Recommended-Visiteur/Fav';
+import Lieu from './containers/PageLieux/page_lieu';
 
 function App() {
   const [favorites, setFavorites] = useState([]);
@@ -33,6 +34,7 @@ function App() {
         <Route path="/RecVisiteur" element={<RecVisiteur/>} />
         <Route path="/PageActive" element={<PageActive/>} />
         <Route path="/LieuDv" element={<LieuDv addToFavorites={addToFavorites}/>}/>
+        <Route path="/Lieu" element={<Lieu/>} />
       
      
       </Routes>

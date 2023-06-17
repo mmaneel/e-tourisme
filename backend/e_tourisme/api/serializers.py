@@ -10,3 +10,8 @@ class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model=Evenement
         fields= '__all__'
+        
+class CommentaireSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Commentaire
+        fields = ['id', 'body', 'lieuid', 'userid', 'created_at']

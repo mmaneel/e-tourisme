@@ -1,4 +1,5 @@
 from django.db import models
+from users.models import UserData as User
 
 # Create your models here.
 
@@ -13,7 +14,8 @@ class Lieu(models.Model):
      theme=models.CharField(max_length=30)
      longitude = models.FloatField()
      latitude = models.FloatField()
-     image= models.ImageField(upload_to='media')
+     #image= models.ImageField(upload_to='media')
+     image = models.CharField(max_length=255) #url of image to make thingz easy
      categorie = models.CharField(max_length=30)
 
 class HoraireOuv(models.Model):
@@ -29,9 +31,9 @@ class Transport(models.Model):
     lieu = models.ForeignKey(Lieu, on_delete=models.CASCADE)
     temps = models.CharField(max_length=8)
 
-class User(models.Model):
-      email=models.EmailField()
-      password=models.CharField(max_length=40)
+# class User(models.Model):
+#       email=models.EmailField()
+#       password=models.CharField(max_length=40)
 
 class Commentaire(models.Model):
      body=models.TextField()

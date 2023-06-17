@@ -24,6 +24,11 @@ class UserManager(BaseUserManager):
         if extra_fields.get('is_superuser') is not True:
             raise ValueError('Superuser must have is_superuser = True')
 
+          # Set the name field as the first part of the email
+        name = email.split('@')[0]
+        extra_fields.setdefault('name', name)
+
+        
         return self.create_user(email, password, **extra_fields)
 
 

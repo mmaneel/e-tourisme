@@ -7,8 +7,9 @@ path('lieuxtheme',Recherche_theme), #recherche par theme
 path('lieuxcategorie',Recherche_categorie), #recherche par categorie
 path('filtrernom',Filtrage_Nom), #filtrer par nom
 path('AddEvent',eventView.as_view()), #add event
+path('lieux/<int:pk>/', lieu_detail, name='lieu-detail'),
 
-#path('addComment/', add_comment, name='add_comment'),
+path('lieux/<int:pk>/addComment/', add_comment, name='add_comment'),
 
 
 

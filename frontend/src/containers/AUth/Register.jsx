@@ -27,36 +27,63 @@ function Register(props) {
     //console.log(formValues)
   }
   const navigate = useNavigate();
-  const handleSubmit=(e)=>{
-    e.preventDefault();
-    setFormErrors(validate(formValues));
-    setIsSubmit(true)
-    
- 
-    if(Object.keys(formErrors).length===0 && isSubmit){
-      console.log(formValues);
-      axios.post('http://localhost:8000/users/api/login/', formValues)
+  // ...
+
+const determineRedirectUrl = async () => {
+  try {
+    const response = await axios.get('http://localhost:8000/users/api/user-role/', {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    });
+
+    const userRole = response.data.role;
+    console.log( userRole)
+
+    if (userRole === 'admin') {
+      return '/RecVisiteur';
+    } else {
+      return '/LieuDv';
+    }
+  } catch (error) {
+    // Handle error
+    console.error(error);
+    // Return a default redirect URL or an error message
+    return '/error-page';
+  }
+};
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  setFormErrors(validate(formValues));
+  setIsSubmit(true);
+
+  if (Object.keys(formErrors).length === 0 && isSubmit) {
+    console.log(formValues);
+    axios
+      .post('http://localhost:8000/users/api/login/', formValues)
       .then((res) => {
         const token = res.data.access;
-        setAuthToken(token); 
-        localStorage.setItem('token',token)
-        axios
-        .get()
-        navigate("/LieuDv")
-        
-       // alert("login successful!");
-      
+        setAuthToken(token);
+        localStorage.setItem('token', token);
+
+        determineRedirectUrl().then((redirectUrl) => {
+          navigate(redirectUrl);
+        });
       })
       .catch((error) => {
         if (error.response && error.response.status === 401) {
-          setError('Invalid username or password.'); // Set the error message
-          alert("login error");
+          setError('Invalid username or password.');
+          alert('login error');
         } else {
           setError('An error occurred. Please try again later.');
-      }});
-    }
-    
-  };
+        }
+      });
+  }
+};
+
+// ...
+
 
   const validate=(values)=>{
     const errors={}
@@ -103,7 +130,7 @@ function Register(props) {
       <label >Email</label>
     <input 
        name="email"
-       value={formValues.Loginemail}
+       value={formValues.email}
        type="text"
        placeholder='example@gmail.com'
        onChange={handlechange}/>

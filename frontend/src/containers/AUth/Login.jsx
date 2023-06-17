@@ -44,6 +44,7 @@ function Login(props) {
     }
     
   };
+  
 
   const validate=(values)=>{
     const errors={}
@@ -98,7 +99,7 @@ function Login(props) {
       <label >Email</label>
     <input 
        name="email"
-       value={formValues.Loginemail}
+       value={formValues.email}
        type="text"
        placeholder='example@gmail.com'
        onChange={handlechange}/>

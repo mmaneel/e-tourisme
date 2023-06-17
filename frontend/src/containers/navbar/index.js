@@ -1,78 +1,169 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useWindowSize } from '../../hooks/WindowSize';
-import { useScrollPosition } from '../../hooks/ScrollPosition';
-import logo from './Logo 2.svg'
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import ReactMapGL from 'react-map-gl';
+import "mapbox-gl/dist/mapbox-gl.css";
+//import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
+import { useControl } from 'react-map-gl';
+import MapBoxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
+import Map, {
+  Marker,
+  NavigationControl,
+  Popup,
+  FullscreenControl,
+  GeolocateControl, 
+} from "react-map-gl";
+import mapboxgl from 'mapbox-gl';
+import NavBar from '../navbar'
+import { useEffect } from 'react';
+import monuments from '../../monuments.json';
+import { useMemo } from 'react';
 
+function Search() {
+  const [theme, setTheme]=useState(null);
+  const [category, setCategory]=useState(null);
+  const [popupInfo, setPopupInfo] = useState(null);
+  const [shownMonuments, setShownMonuments]=useState(monuments);
+  const [searchClicked, setSearchClicked] = useState(false);
 
-const NavBar = () => {
-    const windowSize = useWindowSize();
-	const scrollPosition = useScrollPosition();
-	const menuToggleRef = useRef(null);
-	const headerRef = useRef(null);
-	const [activeLink, setActiveLink] = useState('home');
+  useEffect(() => {
+    if (searchClicked) {
+      // Filter the monuments based on theme and category
+      const filteredMonuments = monuments.filter((monument) => {
+        if (theme && monument.theme !== theme) {
+          return false;
+        }
+        if (category && monument.category !== category) {
+          return false;
+        }
+        return true;
+      });
+      setShownMonuments(filteredMonuments);
+      setSearchClicked(false); // Réinitialiser l'état searchClicked
+    }
+  }, [searchClicked, theme, category]);
 
-    // const updateActiveLink = () => {
-	// 	navLinks.every((navLink) => {
-	// 		const element = document.getElementById(navLink.id);
-	// 		if (element) {
-	// 			const { top, bottom } = element.getBoundingClientRect();
-	// 			const vHeight =
-	// 				window.innerHeight || document.documentElement.clientHeight;
-	// 			if (top < vHeight && bottom >= 128) {
-	// 				setActiveLink(navLink.id);
-	// 				return false;
-	// 			}
-	// 		}
-	// 		return true;
-	// 	});
-	// };
+  const handleSearchClick = () => {
+    setSearchClicked(true);
+  };
+  const handleThemeChange =(event)=>{
+    setTheme(event.target.value)
+  }
+  const handleCategoryChange =(event)=>{
+    setCategory(event.target.value)
+}
+  
+const pins = useMemo(
+  () =>
+    shownMonuments.map((monument, index) => (
+      <Marker
+        key={`marker-${index}`}
+        longitude={monument.longitude}
+        latitude={monument.latitude}
+        anchor="bottom"
+        onClick={(e) => {
+          e.originalEvent.stopPropagation();
+          setPopupInfo(monument);
+        }}
+      >
+      </Marker>
+    )),
+  [shownMonuments]
+);
+  
+  const Geocoder = () => { 
+    const ctrl = new MapBoxGeocoder({
+      accessToken: "pk.eyJ1IjoiaW5lc2JtenoiLCJhIjoiY2xpd2EzOHB3MGVnZzNycmxuaWVleXVkbSJ9.qD2tXOMKi1rbqldo1mb2zg",
+      marker: false,
+      placeholder:'Search',
+      countries:'dz',
+      mapboxgl: mapboxgl,
+   });
+    useControl(() => ctrl);
+    ctrl.on('result', (e) => {
+    });
+    return null;
+  };
 
-	useEffect(() => {
-		const toggleElement = menuToggleRef.current;
-		if (
-			windowSize.width &&
-			windowSize.width > 1024 &&
-			toggleElement &&
-			toggleElement.checked
-		) {
-			toggleElement.click();
-		}
-	}, [windowSize.width]);
+  return (
+    <div  className='h-screen relative w-full flex flex-col'>
+      <NavBar/>
+      <div className='w-full h-full relative flex flex-col justify-center items-start'>
+               
+                 <ReactMapGL
+                        mapboxAccessToken="pk.eyJ1IjoiaW5lc2JtenoiLCJhIjoiY2xpd2EzOHB3MGVnZzNycmxuaWVleXVkbSJ9.qD2tXOMKi1rbqldo1mb2zg"
+                        mapStyle="mapbox://styles/mapbox/streets-v12"
+                        center= "7.04, 38.907"
+                        initialViewState={{
+                          longitude: 3.042048,
+                          latitude: 36.752887,
+                          zoom: 11.5,
+                        }}
+                   >
+                      <div className='absolute top-6 z-20 px-4 py-2 rounded-r-xl bg-white flex flex-row justify-between items-center w-[60%] h-16 gap-3'>
+                         <div className='w-2/4 h-full '><Geocoder/></div>
+                         <div className='flex flex-row justify-between items-center w-full h-full gap-3'>
+                            <div className='border-l border-bgshadow h-full'></div>
+                            <div className='w-full px-2 flex justify-center'>
+                                <select value={theme} className='w-full font-semibold text-sm rounded py-1 px-1 ' onChange={handleThemeChange}>
+                                    <option value="histoire">Histoire</option>
+                                    <option value="nature">Nature</option>
+                                    <option value="art">Art</option>
+                                    <option value="divertissement">Divertissement</option>
+                                    <option value="aventure">Aventure</option>
+                                    <option value="gastronomie">Gastronomie</option>
+                                    <option value="desert">Désert</option>
+                                </select>
+                            </div>
+                            <div className='border-l border-bgshadow h-full'></div>
+                            <div className='w-full px-2 justify-center flex'>
+                                <select value={category} className='w-full font-semibold text-sm rounded py-1 px-1 ' onChange={handleCategoryChange}>
+                                    <option value="monuments">Monuments</option>
+                                    <option value="musées">Musées</option>
+                                    <option value="palais">Palais</option>
+                                    <option value="ruines">Ruines anciennes</option>
+                                    <option value="grottes">Grottes</option>
+                                    <option value="opéras">Opéras</option>
+                                    <option value="montagnes">Montagnes</option>
 
-    return (
-        
-        <div className= 'w-full bg-white flex flex-row justify-between text-black text-lg px-20 py-6'>
-        <img className='w-8' src={logo}></img>
-       
-        <input
-				type='checkbox'
-				id='menu-toggle'
-				className='peer hidden'
-				ref={menuToggleRef}
-			/>
-        <label
-				className='relative flex flex-col w-10 gap-2 lg:hidden z-20 group mx-5'
-				htmlFor='menu-toggle'
-			>
-				<span className='bg-black h-[6px] w-full rounded-md transition-transform origin-center group-[.peer:checked_+_&]:rotate-45 group-[.peer:checked_+_&]:absolute'></span>
-				<span className='bg-white h-[6px] w-full rounded-md transition-opacity group-[.peer:checked_+_&]:opacity-0'></span>
-				<span className='bg-white h-[6px] w-full rounded-md transition-transform origin-center group-[.peer:checked_+_&]:-rotate-45 group-[.peer:checked_+_&]:absolute'></span>
-			</label>
-        
-            <div className='flex flex-row justify-between gap-8 font-medium'>
-                <a href='/'><button className='hover:text-orange hover:underline mt-17'>Accueil </button></a>
-                <a href='/search'><button className='hover:text-orange hover:underline mt-17'>Recherche</button></a>
-                <a href='#projects'><button className='hover:text-orange hover:underline mt-17'>Actualités </button></a>
-            </div>
-            <div className='flex flex-row justify-between gap-8 font-medium'>
-                <a href='#services'><button className='hover:bg-[#CBDEEC] hover:rounded-2xl px-2   mt-17'><Link to='/Register' >Se connecter</Link> </button></a>
-                <a href='#projects'><button className=' bg-[#CBDEEC] rounded-2xl px-2  mt-17'><Link to='/Login' >S'inscrire</Link>  </button></a>
-            </div>
-     
-       
-    </div>
-    );
-};
+                                    
+                                </select>
+                            </div>
+                            <div className='border-l border-bgshadow h-full'></div>
+                            <div className='h-full w-full flex flex-col items-center justify-center '>
+                              <div className='h-2/3 w-full flex flex-row items-center justify-center'>
+                                <button className=' bg-orange rounded-2xl px-6 text-base font-medium' onClick={handleSearchClick}>Rechercher</button>
+                              </div>
+                            </div>
+                        </div>
+                       </div>
+                     
+                      <FullscreenControl position="bottom-right"/>
+                      <NavigationControl position="bottom-left" />
+                      {pins}
+                      {popupInfo && (
+                        <Popup
+                          anchor="top"
+                          longitude={Number(popupInfo.longitude)}
+                          latitude={Number(popupInfo.latitude)}
+                          onClose={() => setPopupInfo(null)}
+                        >
+                          <div>
+                            {popupInfo.site} |{' '}
+                            <a
+                              target="_new"
+                              href={`http://en.wikipedia.org/w/index.php?title=Special:Search&search=${popupInfo.site}`}
+                            >
+                              Wikipedia
+                            </a>
+                          </div>
+                          <img width="100%" src={popupInfo.image} />
+                        </Popup>
+                      )}
+                  </ReactMapGL>
+                </div>
+   
+  </div>
+  )
+}
 
-export default NavBar;
+export default Search;

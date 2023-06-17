@@ -1,12 +1,12 @@
 [
-  {"site":"Mémorial du Martyr","category":"monuments","theme":"histoire","image":"https://upload.wikimedia.org/wikipedia/commons/6/6e/Martyrs_Memorial._Algiers%2C_Algeria.jpg","latitude":36.7456968,"longitude":3.0697379},
-  {"site":"Basilique Notre dame d'afrique","category":"monuments","theme":"histoire","image":"https://upload.wikimedia.org/wikipedia/commons/f/f8/Alger-Notre-Dame-D%27Afrique_Basilique.jpg","latitude":36.8011287,"longitude":3.0430556},
-  {"site":"Palais des Raïs","category":"palais","theme":"histoire","image":"https://upload.wikimedia.org/wikipedia/commons/d/dc/Palais_des_Rais_%28Es%27hine%29_-_Alger.JPG","latitude":36.788304,"longitude":3.0641962},
-  {"site":"Ruines Romaines de Timgad","category":"ruines","theme":"nature","image":"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Timgad_la_ville.jpg/1024px-Timgad_la_ville.jpg","latitude": 35.4836328,"longitude":6.4668121},
-  {"site":"Parc culturel du Tassili","category":"montagnes","theme":"desert","image":"https://upload.wikimedia.org/wikipedia/commons/a/a4/Sunrise_Djanet.jpg","latitude":24.664678,"longitude":8.7875805},
-  {"site":"Taghit","category":"monuments","theme":"desert","image":"https://upload.wikimedia.org/wikipedia/commons/f/fd/Vue_de_Taghit.jpg","latitude":30.9170611,"longitude":-2.0294754},
-  {"site":"Hoggar","category":"montagnes","theme":"desert","image":"https://upload.wikimedia.org/wikipedia/commons/8/86/-%D8%AA%D9%8A%D9%86%D8%A7%D9%83%D8%A7%D8%B4%D8%A7%D9%83%D9%8A%D8%B1-_%D8%A7%D9%84%D8%AD%D8%B6%D9%8A%D8%B1%D8%A9_%D8%A7%D9%84%D9%88%D8%B7%D9%86%D9%8A%D8%A9_%D9%84%D8%B7%D8%A7%D8%B3%D9%8A%D9%84%D9%8A_%D8%A7%D9%84%D9%87%D9%82%D8%A7%D8%B1_-_%D8%AA%D8%A7%D9%85%D9%86%D8%B1%D8%A7%D8%B3%D8%AA_-_%D8%A7%D9%84%D8%AC%D8%B2%D8%A7%D8%A6%D8%B1.jpg","latitude":23.284083,"longitude":5.5320051},
-  {"site":"Musée National du Bardo","category":"musées","theme":"art","image":"https://upload.wikimedia.org/wikipedia/commons/5/59/Cour_Bardo.jpg","latitude":36.7603521,"longitude":3.0462785},
-  {"site":"Mausolée royal de Maurétanie","category":"monuments","theme":"histoire","image":"https://upload.wikimedia.org/wikipedia/commons/c/c8/Royal_Mausoleum_of_Mauretania_2014.jpg","latitude":36.5749564,"longitude":2.5527935}
-
-]
+    {"site":"Mémorial du Martyr","category":"monuments","theme":"histoire","image":"https://upload.wikimedia.org/wikipedia/commons/6/6e/Martyrs_Memorial._Algiers%2C_Algeria.jpg","latitude":36.7456968,"longitude":3.0697379},
+    {"site":"Basilique Notre dame d'afrique","category":"monuments","theme":"histoire","image":"https://upload.wikimedia.org/wikipedia/commons/f/f8/Alger-Notre-Dame-D%27Afrique_Basilique.jpg","latitude":36.8011287,"longitude":3.0430556},
+    {"site":"Palais des Raïs","category":"palais","theme":"histoire","image":"https://upload.wikimedia.org/wikipedia/commons/d/dc/Palais_des_Rais_%28Es%27hine%29_-_Alger.JPG","latitude":36.788304,"longitude":3.0641962},
+    {"site":"Ruines Romaines de Timgad","category":"ruines","theme":"nature","image":"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Timgad_la_ville.jpg/1024px-Timgad_la_ville.jpg","latitude": 35.4836328,"longitude":6.4668121},
+    {"site":"Parc culturel du Tassili","category":"montagnes","theme":"desert","image":"https://upload.wikimedia.org/wikipedia/commons/a/a4/Sunrise_Djanet.jpg","latitude":24.664678,"longitude":8.7875805},
+    {"site":"Taghit","category":"monuments","theme":"desert","image":"https://upload.wikimedia.org/wikipedia/commons/f/fd/Vue_de_Taghit.jpg","latitude":30.9170611,"longitude":-2.0294754},
+    {"site":"Hoggar","category":"montagnes","theme":"desert","image":"https://upload.wikimedia.org/wikipedia/commons/8/86/-%D8%AA%D9%8A%D9%86%D8%A7%D9%83%D8%A7%D8%B4%D8%A7%D9%83%D9%8A%D8%B1-_%D8%A7%D9%84%D8%AD%D8%B6%D9%8A%D8%B1%D8%A9_%D8%A7%D9%84%D9%88%D8%B7%D9%86%D9%8A%D8%A9_%D9%84%D8%B7%D8%A7%D8%B3%D9%8A%D9%84%D9%8A_%D8%A7%D9%84%D9%87%D9%82%D8%A7%D8%B1_-_%D8%AA%D8%A7%D9%85%D9%86%D8%B1%D8%A7%D8%B3%D8%AA_-_%D8%A7%D9%84%D8%AC%D8%B2%D8%A7%D8%A6%D8%B1.jpg","latitude":23.284083,"longitude":5.5320051},
+    {"site":"Musée National du Bardo","category":"musées","theme":"art","image":"https://upload.wikimedia.org/wikipedia/commons/5/59/Cour_Bardo.jpg","latitude":36.7603521,"longitude":3.0462785},
+    {"site":"Mausolée royal de Maurétanie","category":"monuments","theme":"histoire","image":"https://upload.wikimedia.org/wikipedia/commons/c/c8/Royal_Mausoleum_of_Mauretania_2014.jpg","latitude":36.5749564,"longitude":2.5527935}
+  
+  ]

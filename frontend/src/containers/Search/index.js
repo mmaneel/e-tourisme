@@ -22,29 +22,6 @@ function Search() {
   const [theme, setTheme]=useState(null);
   const [category, setCategory]=useState(null);
   const [popupInfo, setPopupInfo] = useState(null);
-  const [shownMonuments, setShownMonuments]=useState(monuments);
-  const [searchClicked, setSearchClicked] = useState(false);
-
-  useEffect(() => {
-    if (searchClicked) {
-      // Filter the monuments based on theme and category
-      const filteredMonuments = monuments.filter((monument) => {
-        if (theme && monument.theme !== theme) {
-          return false;
-        }
-        if (category && monument.category !== category) {
-          return false;
-        }
-        return true;
-      });
-      setShownMonuments(filteredMonuments);
-      setSearchClicked(false); // Réinitialiser l'état searchClicked
-    }
-  }, [searchClicked, theme, category]);
-
-  const handleSearchClick = () => {
-    setSearchClicked(true);
-  };
   const handleThemeChange =(event)=>{
     setTheme(event.target.value)
   }
@@ -130,9 +107,7 @@ const pins = useMemo(
                             </div>
                             <div className='border-l border-bgshadow h-full'></div>
                             <div className='h-full w-full flex flex-col items-center justify-center '>
-                              <div className='h-2/3 w-full flex flex-row items-center justify-center'>
-                                <button className=' bg-orange rounded-2xl px-6 text-base font-medium' onClick={handleSearchClick}>Rechercher</button>
-                              </div>
+                              <div className='h-2/3 bg-orange rounded-2xl flex flex-row items-center justify-center px-6 text-base font-medium'>Rechercher</div>
                             </div>
                         </div>
                        </div>
